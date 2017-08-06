@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'StaticController@getIndex');
+Route::get('about', 'StaticController@getAbout');
+Route::get('profile', 'ProfileController@getProfile')->name('profile');
+Route::post('upload', 'ProfileController@updateResume');
+Route::post('change_profile_picture', 'ProfileController@updateProfilePic');
