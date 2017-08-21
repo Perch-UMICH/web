@@ -15,12 +15,13 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unique()->index();
-            $table->integer('lab_id')->unique()->index();
+            $table->integer('lab_id')->unique()->index()->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('bio')->nullable();
             $table->string('major')->nullable();
             $table->string('year')->nullable();
+            $table->double('gpa')->nullable();
             $table->string('linkedin_user')->nullable();
             $table->string('profile_pic_link')->nullable();
             $table->timestamps();
