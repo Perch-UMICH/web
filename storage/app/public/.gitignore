@@ -1,2 +1,4 @@
 *
 !.gitignore
+!profile_pic/default_avatar.svg
+!profile_pic

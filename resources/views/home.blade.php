@@ -11,6 +11,7 @@
                     You are {{Auth::user()->name}}.
                     @if (Auth::user()->hasRole('student'))
                         You're a student!
+                        Check out your <a href={{ url('/student') }}>Profile</a>
                     @elseif (Auth::user()->hasRole('professor'))
                         You're a professor!
 

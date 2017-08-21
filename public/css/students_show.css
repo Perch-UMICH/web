@@ -9,3 +9,8 @@
 #students_show_info {
 
 }
+
+.invisible{
+    position:absolute;
+    left:-9999px;
+}

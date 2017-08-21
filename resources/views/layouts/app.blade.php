@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -16,6 +16,7 @@
     @yield('header')
 </head>
 <body>
+@yield('status')
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -55,6 +56,12 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href={{ url('/home') }}>Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a href={{ url('/student') }}>Profile</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -78,5 +85,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Resume;
+use App\Skill;
+use App\Student_Skill;
 use Illuminate\Http\Request;
 use App\Student;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 
 class StudentsController extends Controller
@@ -54,7 +58,7 @@ class StudentsController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function show($username)
     {
@@ -66,8 +70,18 @@ class StudentsController extends Controller
         // Get student data by id
         $student = Student::where('user_id', '=', $user->id)->first();
 
+        // Get student skills
+        $skills = array();
+        foreach (Student_Skill::where('user_id', '=', $user->id)->get() as $skill) {
+            $skills[] = Skill::find($skill->skill_id)->name;
+        }
+
+        //Get student resume
+        $resume = Resume::where('user_id', '=', $user->id)->first();
+
         // Return student profile home page
-        return view('student.show')->with(['student' => $student]);
+        return view('student.show')->with('student', $student)->with('resume', $resume)
+            ->with('skills', $skills);
     }
 
     /**
