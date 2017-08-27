@@ -1,6 +1,35 @@
-# PERCH - Akshay edition
-Akshay's work on auth/login. To be merged with "web" later.
-Be sure to set up migrations and seed the database before testing:
-  php artisan migrate:refresh --seed
+<div align="center">
+  <img src="public/images/logo.jpg">
+</div>
 
-   
+-----------------
+
+## About Perch
+
+**Perch** seeks to expand research opportunities to undergraduates at the University of Michigan by providing a virtual network between research faculty and students.
+
+## Installation
+
+1. Get [composer](https://getcomposer.org/download/)
+2. Install project dependencies using composer:
+    ```shell
+    php composer.phar install
+    ```
+3. Copy and rename `.env.example` to `.env`:
+    ```shell
+    cp .env.example .env
+    ```
+4. Configure application parameters in `.env` file
+5. Generate application key:
+    ```shell
+    php artisan key:generate
+    ```
+6. Run migrations and seed the database
+	```shell
+	php artisan migrate:refresh --seed
+	```
+    
+## Learn more
+ * [Facebook](https://www.facebook.com/groups/319938491783428/)
+ * [Perch Website](http://perch.umich.edu)
+ * [Current Demo](http://perch.us-east-1.elasticbeanstalk.com)
