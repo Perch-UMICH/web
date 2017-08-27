@@ -27,10 +27,10 @@
                     <div class="panel-body">
                         <!-- profile picture -->
                         @if ($student->profile_pic_link)
-                            <img src="/{{ $student->profile_pic_link }}" alt="Profile Picture"
+                            <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture"
                                  class="img-responsive" onclick="updateProfilePic()">
                         @else
-                            <img src="{{ asset('storage/profile_pic/default_avatar.svg') }}" alt="Profile Picture"
+                            <img src="{{ url('/photo') }}" alt="Profile Picture"
                                  class="img-responsive" onclick="updateProfilePic()">
                         @endif
 

@@ -25,15 +25,15 @@
                     <div class="panel-body">
                         <!-- profile picture -->
                         @if ($student->profile_pic_link)
-                            <img src="/{{ $student->profile_pic_link }}" alt="Profile Picture"
+                            <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture"
                                  class="img-responsive" onclick="updateProfilePic()">
                         @else
-                            <img src="{{ asset('storage/profile_pic/default_avatar.svg') }}" alt="Profile Picture"
+                            <img src="{{ url('/photo') }}" alt="Profile Picture"
                                  class="img-responsive" onclick="updateProfilePic()">
                         @endif
-                        <form method="post" action="{{ url('/change_profile_picture') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ url('/photo') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                            <input type="file" name="profile" id="profile_upload" class="invisible"
+                            <input type="file" name="profile_picture" id="profile_upload" class="invisible"
                                    onchange="this.form.submit()"/>
                         </form>
 
@@ -49,7 +49,7 @@
                                     <button type="button" class="btn btn-xs btn-primary" onclick="uploadResume()">Upload</button>
                                 @endif
                                 @if($resume)
-                                    <a href="{{url('resume/' . $username)}}" class="btn btn-xs btn-primary" data-toggle="tooltip" title="{{ $resume->resume_name }}">Download</a>
+                                    <a href="{{url('/resume/' . $username)}}" class="btn btn-xs btn-primary" data-toggle="tooltip" title="{{ $resume->resume_name }}">Download</a>
                                 @else
                                     <button type="button" class="btn btn-xs btn-primary" disabled="disabled">Download</button>
                                 @endif
@@ -152,6 +152,7 @@
 @section('scripts')
     <script src="{{ asset('js/jquery.fittext.js') }}"></script>
 
+    @if($student->user_id == auth()->id())
     <script>
         function updateProfilePic(){
             document.getElementById("profile_upload").click();
@@ -160,6 +161,7 @@
             document.getElementById("resume_upload").click();
         }
     </script>
+    @endif
 
     <script type="text/javascript">
         $(document).ready(function(){
