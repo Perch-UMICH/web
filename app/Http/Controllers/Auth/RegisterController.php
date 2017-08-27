@@ -49,7 +49,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'user-type' => 'required'
@@ -69,14 +70,28 @@ class RegisterController extends Controller
         $username = substr($email, strpos($email,"<"), strrpos($email, "@")-strpos($email,"<"));
 
         $user = User::create([
-            'name' => $data['name'],
+            'name' => $data['first_name'],
             'email' => $data['email'],
             'username' => $username,
             'password' => bcrypt($data['password']),
         ]);
 
+        // Attach necessary role
+
         $role = Role::where('name', $data['user-type'])->first();
         $user->attachRole($role);
+
+        // Create student profile object if student
+        if ($data['user-type'] == 'student') {
+            $profile = new Student();
+            $profile->user_id = $user->id;
+            $profile->first_name = $data['first_name'];
+            $profile->last_name = $data['last_name'];
+            $profile->major = $data['major'];
+            $profile->year = $data['year'];
+            $profile->bio = $data['bio'];
+            $profile->save();
+        }
 
         return $user;
     }
