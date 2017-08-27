@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-use App\Student;
 
 class User extends Authenticatable
 {
@@ -29,4 +28,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * This function returns skills that belongs to a user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function skills() {
+        return $this->hasMany('App\Student_Skill');
+    }
+
+    /**
+     * Get the student record associated with the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function student() {
+        return $this->hasOne('App\Student');
+    }
 }

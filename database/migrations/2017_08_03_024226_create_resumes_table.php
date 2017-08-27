@@ -15,10 +15,11 @@ class CreateResumesTable extends Migration
     {
         Schema::create('resumes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unique();
+            $table->integer('user_id')->unsigned()->unique();
             $table->string('resume_name');
             $table->string('resume_link');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

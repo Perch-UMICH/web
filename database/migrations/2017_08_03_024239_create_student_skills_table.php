@@ -15,10 +15,12 @@ class CreateStudentSkillsTable extends Migration
     {
         Schema::create('student_skills', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->index();
-            $table->integer('skill_id');
+            $table->integer('user_id')->unsigned()->index();
+            $table->integer('skill_id')->unsigned();
             $table->timestamps();
             $table->unique(['user_id', 'skill_id']);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('skill_id')->references('id')->on('skills');
         });
     }
 
