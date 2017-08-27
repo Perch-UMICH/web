@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Register')
 
 @section('content')
 <div class="container">
@@ -63,8 +64,14 @@
                         <div class="form-group">
                             <label for="user-type" class="col-md-4 control-label" name="user-type" required>User Type</label>
 
-                            <input type="radio" name="user-type" value="student" checked> Student
-                            <input type="radio" name="user-type" value="professor"> Professor
+                            <div class="col-md-6 btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="radio" class="form-control-static" name="user-type" value="student"> Student
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" class="form-control-static" name="user-type" value="professor"> Professor
+                                </label>
+                            </div>
                         </div>
 
                         <div class="form-group">

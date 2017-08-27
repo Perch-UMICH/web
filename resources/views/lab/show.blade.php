@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Lab')
 
 @section('header')
     <link href="{{ asset('css/labs_show') }}" rel="stylesheet">

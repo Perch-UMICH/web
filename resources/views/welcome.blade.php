@@ -37,6 +37,12 @@
             </div>
 
         </div>
+        <div class="row">
+            <p>Existing User</p>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4">
+            <div id="welcome-button"><a href="/login">Login Here</a></div>
+        </div>
     </div>
 </div>
 
