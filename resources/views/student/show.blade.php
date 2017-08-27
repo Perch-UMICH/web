@@ -24,13 +24,12 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <!-- profile picture -->
-                        @if ($student->profile_pic_link)
-                            <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture"
-                                 class="img-responsive" onclick="updateProfilePic()">
-                        @else
-                            <img src="{{ url('/photo') }}" alt="Profile Picture"
-                                 class="img-responsive" onclick="updateProfilePic()">
-                        @endif
+                        <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture" class="img-responsive"
+                             onclick="updateProfilePic()"
+                             @if($student->user_id == auth()->id())
+                                data-toggle="tooltip" title="Click to change profile picture"
+                             @endif
+                        >
                         <form method="post" action="{{ url('/photo') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <input type="file" name="profile_picture" id="profile_upload" class="invisible"

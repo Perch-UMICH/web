@@ -63,6 +63,18 @@
                     </form>
                 </div>
             </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Test Logins</div>
+                <div class="panel-body">
+                    <h5>Student Account</h5>
+                    <p>Email: test@perch.com</p>
+                    <p>Password: test</p>
+                    <hr>
+                    <h5>Professor Account</h5>
+                    <p>Email: anishii@umich.edu</p>
+                    <p>Password: password</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

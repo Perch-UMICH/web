@@ -26,13 +26,8 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <!-- profile picture -->
-                        @if ($student->profile_pic_link)
-                            <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture"
-                                 class="img-responsive" onclick="updateProfilePic()">
-                        @else
-                            <img src="{{ url('/photo') }}" alt="Profile Picture"
-                                 class="img-responsive" onclick="updateProfilePic()">
-                        @endif
+                        <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture"
+                             class="img-responsive" onclick="updateProfilePic()">
 
                         <div id="basic_info">
                             <h1 id="profile_name">{{ $student->first_name }} {{ $student->last_name }}</h1>
@@ -124,8 +119,10 @@
         var text_length = $('#bio').val().length;
         var text_remaining = text_max - text_length;
 
-        $('#count_message').html(text_remaining + ' characters remaining');
+        $('#count_message').html(text_max + ' characters remaining');
         $('#bio').keyup(function() {
+            text_length = $('#bio').val().length;
+            text_remaining = text_max - text_length;
             if (text_remaining > 1) {
                 $('#count_message').html(text_remaining + ' characters remaining');
             } else {

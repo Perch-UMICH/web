@@ -37,5 +37,19 @@ class SkillsTableSeeder extends Seeder{
             'user_id' => 1,
             'skill_id' => 3
         ]);
+
+        // test user student_skills
+        DB::table('student_skills')->insert([
+            'user_id' => 4,
+            'skill_id' => 1
+        ]);
+        DB::table('student_skills')->insert([
+            'user_id' => 4,
+            'skill_id' => 2
+        ]);
+        DB::table('student_skills')->insert([
+            'user_id' => 4,
+            'skill_id' => 3
+        ]);
     }
 }

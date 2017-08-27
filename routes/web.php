@@ -37,5 +37,5 @@ Route::resource('resume', 'ResumeController', ['only' => [
 ]]);
 
 Route::resource('photo', 'ProfilePictureController', ['only' => [
-    'index', 'show', 'store'
+    'show', 'store'
 ]]);

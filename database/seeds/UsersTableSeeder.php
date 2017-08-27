@@ -78,5 +78,21 @@ class UsersTableSeeder extends Seeder
         $profile->year = 'Junior';
         $profile->gpa = '4.0';
         $profile->save();
+
+        // Create additional users
+        $student = new User();
+        $student->name = 'perch';
+        $student->username = 'perch';
+        $student->email = 'test@perch.com';
+        $student->password = bcrypt('test');
+        $student->save();
+        $student->attachRole($role_student);
+
+        $profile = new Student();
+        $profile->user_id = $student->id;
+        $profile->first_name = 'Perch';
+        $profile->last_name = 'User';
+        $profile->major = 'Biology';
+        $profile->save();
     }
 }

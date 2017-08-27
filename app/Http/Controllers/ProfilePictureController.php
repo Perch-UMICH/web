@@ -8,20 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class ProfilePictureController extends Controller
-{
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $path = 'app/public/profile_pic/default_avatar.svg';
-        return response()->file(storage_path($path), ['Content-type' => 'image/svg+xml']);
-    }
-
+class ProfilePictureController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
@@ -65,8 +52,15 @@ class ProfilePictureController extends Controller
         $userid = User::where('username', '=', $username)->first()->id;
         $student = Student::where('user_id', '=', $userid)->first();
 
-        $path = explode('/',$student->profile_pic_link);
-        $path = 'app/public/profile_pic/' . end($path);
-        return response()->file(storage_path($path));
+        // profile picture exist, serve it
+        if ($student->profile_pic_link) {
+            $path = explode('/', $student->profile_pic_link);
+            $path = 'app/public/profile_pic/' . end($path);
+            return response()->file(storage_path($path));
+        }
+
+        // profile picture does not exist, serve default
+        $path = 'app/public/profile_pic/default_avatar.svg';
+        return response()->file(storage_path($path), ['Content-type' => 'image/svg+xml']);
     }
 }
