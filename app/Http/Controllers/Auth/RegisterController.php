@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Student;
 use App\User;
 use App\Role;
 use App\Http\Controllers\Controller;

@@ -166,11 +166,14 @@
 
                         <div id="register_page_1">
                             <div class="form-group">
-                                <label for="year" class="col-md-4 control-label">Year</label>
-
+                                <label required="required" for="year" class="col-md-4 control-label">Year</label>
                                 <div class="col-md-6">
-                                    <input id="year" type="text" class="form-control" name="year"
-                                           value="{{ old('year') }}" required autofocus>
+                                    <select class="form-control" id="year" name="year">
+                                        <option value="Freshman" {{ old('year') === 'Freshman' ? "selected" : "" }}>Freshman</option>
+                                        <option value="Sophomore" {{ old('year') === 'Sophomore' ? "selected" : "" }}>Sophomore</option>
+                                        <option value="Junior" {{ old('year') === 'Junior' ? "selected" : "" }}>Junior</option>
+                                        <option value="Senior" {{ old('year') === 'Senior' ? "selected" : "" }}>Senior</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -179,6 +182,13 @@
                                 <div class="col-md-6">
                                     <input id="major" type="text" class="form-control" name="major"
                                            value="{{ old('major') }}" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bio" class="col-md-4 control-label">Provide a short description of yourself</label>
+                                <div class="col-md-6">
+                                    <textarea class="form-control" rows="5" id="bio" name="bio" maxlength="400">{{ old('bio') }}</textarea>
+                                    <p class="pull-right" id="count_message"></p>
                                 </div>
                             </div>
                         </div>
@@ -205,4 +215,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        // bio character counter
+        var text_max = 400;
+        var text_length = $('#bio').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('#count_message').html(text_max + ' characters remaining');
+        $('#bio').keyup(function() {
+            text_length = $('#bio').val().length;
+            text_remaining = text_max - text_length;
+            if (text_remaining > 1) {
+                $('#count_message').html(text_remaining + ' characters remaining');
+            } else {
+                $('#count_message').html(text_remaining + ' character remaining');
+            }
+        });
+    </script>
 @endsection
