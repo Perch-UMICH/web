@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'user-type' => 'required'
         ]);
     }
 
@@ -65,7 +66,7 @@ class RegisterController extends Controller
     {
         // Obtain username by stripping after '@'
         $email = $data['email'];
-        $username = substr($email, strpos($email,"<")+1, strrpos($email, "@")-strpos($email,"<")-1);
+        $username = substr($email, strpos($email,"<"), strrpos($email, "@")-strpos($email,"<"));
 
         $user = User::create([
             'name' => $data['name'],

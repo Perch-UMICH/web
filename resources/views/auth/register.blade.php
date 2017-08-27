@@ -62,11 +62,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="user-type" class="col-md-4 control-label" name="user-type" required>User Type</label>
+                            <label for="user-type" class="col-md-4 control-label">User Type</label>
 
                             <div class="col-md-6 btn-group" data-toggle="buttons">
-                                <label class="btn btn-default">
-                                    <input type="radio" class="form-control-static" name="user-type" value="student"> Student
+                                <label class="btn btn-default active" >
+                                    <input type="radio" class="form-control-static" name="user-type" value="student" checked required> Student
                                 </label>
                                 <label class="btn btn-default">
                                     <input type="radio" class="form-control-static" name="user-type" value="professor"> Professor
