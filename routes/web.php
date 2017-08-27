@@ -20,14 +20,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::resource('student', 'StudentsController', ['only' => [
+Route::resource('student', 'StudentController', ['only' => [
     'show', 'index'
 ]]);
 
-Route::resource('student', 'StudentsController', ['except' => [
-    'index', 'store', 'update', 'destroy'
+Route::resource('student', 'StudentController', ['except' => [
+    'create', 'store', 'destroy'
 ]]);
 
 Route::resource('lab', 'LabController', ['only' => [
     'show', 'index'
+]]);
+
+Route::resource('resume', 'ResumeController', ['only' => [
+    'show', 'store'
+]]);
+
+Route::resource('photo', 'ProfilePictureController', ['only' => [
+    'show', 'store'
 ]]);

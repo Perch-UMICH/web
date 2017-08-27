@@ -45,33 +45,45 @@
                             <p>
                                 <i class="fa fa-file-pdf-o fa-fw" aria-hidden="true"></i>
                                 Resume:
-                                <button type="button" class="btn btn-xs btn-primary" onclick="uploadResume()">Upload</button>
+                                @if($student->user_id == auth()->id())
+                                    <button type="button" class="btn btn-xs btn-primary" onclick="uploadResume()">Upload</button>
+                                @endif
                                 @if($resume)
-                                    <button type="button" class="btn btn-xs btn-primary" data-toggle="tooltip" title="{{ $resume->resume_name }}">Download</button>
+                                    <a href="{{url('resume/' . $username)}}" class="btn btn-xs btn-primary" data-toggle="tooltip" title="{{ $resume->resume_name }}">Download</a>
                                 @else
                                     <button type="button" class="btn btn-xs btn-primary" disabled="disabled">Download</button>
                                 @endif
                             </p>
-                            <form method="post" action="{{ url('/upload') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ url('/resume') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="file" name="resume" id="resume_upload" class="invisible"
                                        onchange="this.form.submit()"/>
                             </form>
-                            <p>
-                                <i class="fa fa-linkedin-square fa-fw" aria-hidden="true"></i>
-                                Linkedin:
-                                <button type="button" class="btn btn-xs btn-primary">Update</button>
-                            </p>
+                            @include('layouts.errors')
                         </div>
                         <hr>
                         <div id="academics">
-                            <h2 id="academics_title">Academics <button type="button" class="btn btn-xs btn-primary pull-right">Edit</button></h2>
+                            <h2 id="academics_title">Academics</h2>
                             <p><i class="fa fa-university fa-fw" aria-hidden="true"></i>
                                 Class Standing: {{ $student->year }} </p>
                             @if ($student->gpa)
                                 <p><i class="fa fa-balance-scale fa-fw" aria-hidden="true"></i>
                                     GPA:  {{ number_format($student->gpa, 2) }} </p>
                             @endif
+                        </div>
+                        <hr>
+                        <div>
+                            <h2 id="links_title">Links</h2>
+                            <p>
+                                <i class="fa fa-linkedin-square fa-fw" aria-hidden="true"></i>
+                                Linkedin:
+                                @if ($student->linkedin_user)
+                                    <a href="{{ $student->linkedin_user }}" class="btn btn-xs btn-warning"
+                                       data-toggle="tooltip" title="{{ $student->linkedin_user }}">External link</a>
+                                @else
+                                    <button type="button" class="btn btn-xs btn-warning" disabled="disabled">External link</button>
+                                @endif
+                            </p>
                         </div>
 
                     </div>
@@ -83,7 +95,12 @@
 
                 <!-- bio -->
                 <div class="panel panel-default">
-                    <div class="panel-heading">Bio <button type="button" class="btn btn-xs btn-primary pull-right">Edit</button></div>
+                    <div class="panel-heading">
+                        Bio
+                        @if($student->user_id == auth()->id())
+                            <a href={{ url('/student/' . $username . '/edit') }} type="button" class="btn btn-xs btn-primary pull-right">Update profile</a>
+                        @endif
+                    </div>
                     <div class="panel-body">
                         @if ($student->bio)
                             <p>{{ $student->bio }}</p>
@@ -100,7 +117,12 @@
 
                 <!-- skills and interest -->
                 <div class="panel panel-default">
-                    <div class="panel-heading">Skills and Interest <button type="button" class="btn btn-xs btn-primary pull-right">Edit</button></div>
+                    <div class="panel-heading">
+                        Skills
+                        @if($student->user_id == auth()->id())
+                            <button type="button" class="btn btn-xs btn-primary pull-right">Update skills</button>
+                        @endif
+                    </div>
                     <div class="panel-body">
                         @if (count($skills) != 0)
                             @foreach ($skills as $skill)
@@ -145,6 +167,7 @@
             $("#status").show().delay(3000).slideUp("slow");
             $("#profile_name").fitText();
             $('#academics_title').fitText(1.4);
+            $('#links_title').fitText(1.4);
             $('.pull-right').onclick = function() {
                 console.log('clicked');
             };

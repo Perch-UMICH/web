@@ -12,8 +12,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 
-class StudentsController extends Controller
-{
+class StudentController extends Controller {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->middleware('auth');
+        $this->middleware('checkRole:student')->only(['index', 'edit', 'update']);
+        $this->middleware('checkPermission')->only(['edit']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +33,10 @@ class StudentsController extends Controller
     public function index()
     {
         // /students url
+        return redirect('student/' . Auth::user()->username);
 
+        // Handled by middleware
+        /*
         // If logged in and a student, redirect to their profile page
         // else, redirect home
         if (!Auth::guest() && Auth::user()->hasRole('student')) {
@@ -30,7 +44,7 @@ class StudentsController extends Controller
         }
         else {
             return redirect('home');
-        }
+        }*/
     }
 
     /**
@@ -40,7 +54,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //TODO
+        //TODO(?)
     }
 
     /**
@@ -57,12 +71,13 @@ class StudentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $username
      * @return View
      */
     public function show($username)
     {
         // Middleware ensures only student may view this page
+            // * Moved middleware to constructor to protect the entire StudentController
 
         // Get user id by username
         $user = User::where('username', '=', $username)->first();
@@ -80,19 +95,22 @@ class StudentsController extends Controller
         $resume = Resume::where('user_id', '=', $user->id)->first();
 
         // Return student profile home page
-        return view('student.show')->with('student', $student)->with('resume', $resume)
-            ->with('skills', $skills);
+        return view('student.show')->with('username', $username)->with('student', $student)
+            ->with('resume', $resume)->with('skills', $skills);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $username
+     * @return View
      */
-    public function edit($id)
-    {
-        //TODO
+    public function edit($username) {
+        // asserting that user is editing their own profile, routing is handled by middleware
+        assert($username == Auth::user()->username);
+        // find the student and return view
+        $student = Student::where('user_id', '=', Auth::id())->first();
+        return view('student.edit')->with('username', $username)->with('student', $student);
     }
 
     /**
@@ -102,9 +120,28 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $username)
     {
-        //TODO
+        // validate form
+        $this->validate(request(), [
+            'major' => 'required',
+            'bio' => 'max:400',
+            'linkedin' => 'active_url|nullable',
+            'gpa' => 'numeric|min:0|max:4|nullable',
+        ]);
+
+        // update database
+        // $user = User::find(Auth::id())->student; // not sure why this line doesn't work
+        $student = Student::where('user_id','=',Auth::id())->first();
+        $student->major = $request->major;
+        $student->year = $request->standing;
+        $student->gpa = $request->gpa;
+        $student->linkedin_user = $request->linkedin;
+        $student->bio = $request->bio;
+        $student->save();
+
+        // redirect
+         return $this->index();
     }
 
     /**
@@ -115,11 +152,7 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //TODO
+        //TODO(?)
     }
 
-//    public function __construct()
-//    {
-//        $this->middleware('permission:access_student', ['only' => ['show', 'index', 'create']]);
-//    }
 }
