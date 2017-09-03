@@ -158,7 +158,7 @@
                                         <input type="radio" class="form-control-static" name="user-type" value="student" checked required> Student
                                     </label>
                                     <label id="register_prof_check" class="btn btn-default">
-                                        <input type="radio" class="form-control-static" name="user-type" value="professor"> Professor
+                                        <input type="radio" class="form-control-static" name="user-type" value="faculty"> Lab Faculty
                                     </label>
                                 </div>
                             </div>

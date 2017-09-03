@@ -46,4 +46,13 @@ class User extends Authenticatable
     public function student() {
         return $this->hasOne('App\Student');
     }
+
+    /**
+     * Get the faculty record associated with the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function faculty() {
+        return $this->hasOne('App\Faculty');
+    }
 }

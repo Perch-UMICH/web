@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Student;
+use App\Faculty;
 use App\User;
 use App\Role;
 use App\Http\Controllers\Controller;
@@ -91,6 +92,11 @@ class RegisterController extends Controller
             $profile->major = $data['major'];
             $profile->year = $data['year'];
             $profile->bio = $data['bio'];
+            $profile->save();
+        }
+        else if ($data['user-type'] == 'faculty') {
+            $profile = new Faculty();
+            $profile->user_id = $user->id;
             $profile->save();
         }
 

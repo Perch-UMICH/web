@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Faculty;
 use App\User;
 use App\Role;
 use App\Permission;
@@ -24,13 +25,13 @@ class UsersTableSeeder extends Seeder
         DB::table('students')->delete();
         // Define roles/permissions
         $role_student = Role::where('name', 'student')->first();
-        $role_professor = Role::where('name', 'professor')->first();
+        $role_faculty = Role::where('name', 'faculty')->first();
         $permission_student = Permission::where('name', 'access_student')->first();
         $permission_lab = Permission::where('name','access_lab')->first();
 
         // Attach permissions to roles
         $role_student->attachPermission($permission_student);
-        $role_professor->attachPermission($permission_lab);
+        $role_faculty->attachPermission($permission_lab);
 
         // Create student user
         $student = new User();
@@ -59,7 +60,12 @@ class UsersTableSeeder extends Seeder
         $prof->email = 'anishii@umich.edu';
         $prof->password = bcrypt('password');
         $prof->save();
-        $prof->attachRole($role_professor);
+        $prof->attachRole($role_faculty);
+
+        $profile = new Faculty();
+        $profile->user_id = $prof->id;
+        $profile->lab_id = 1;
+        $profile->save();
 
         // Create additional users
         $student = new User();

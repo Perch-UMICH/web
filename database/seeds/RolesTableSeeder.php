@@ -20,9 +20,9 @@ class RolesTableSeeder extends Seeder
                 'description' => 'User is a student'
             ],
             [
-                'name' => 'professor',
-                'display_name' => 'professor',
-                'description' => 'User is a professor'
+                'name' => 'faculty',
+                'display_name' => 'faculty',
+                'description' => 'User is a lab faculty member'
             ]
         ];
 

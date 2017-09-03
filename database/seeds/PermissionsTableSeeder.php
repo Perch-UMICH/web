@@ -22,7 +22,7 @@ class PermissionsTableSeeder extends Seeder
             [
                 'name' => 'access_lab',
                 'display_name' => 'Access Lab',
-                'description' => 'Allows user to access professor only pages'
+                'description' => 'Allows user to access lab faculty only pages'
             ]
         ];
 
