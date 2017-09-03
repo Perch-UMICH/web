@@ -65,6 +65,7 @@ class UsersTableSeeder extends Seeder
         $profile = new Faculty();
         $profile->user_id = $prof->id;
         $profile->lab_id = 1;
+        $profile->title = "Akira Nishii, MD, PhD";
         $profile->save();
 
         // Create additional users

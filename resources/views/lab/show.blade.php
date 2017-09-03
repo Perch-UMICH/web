@@ -23,9 +23,15 @@
         </div>
         <div class="col-sm-3">
             <h2>Faculty</h2>
+            @foreach ($faculty as $faculty_member)
+                <p>{{ $faculty_member->title }}</p>
+            @endforeach
             <hr/>
 
             <h2>Students</h2>
+            @foreach ($students as $student)
+                <p>{{ $student->first_name }} {{ $student->last_name }}</p>
+            @endforeach
             <hr/>
         </div>
     </div>

@@ -62,7 +62,11 @@
                                         <a href={{ url('/home') }}>Dashboard</a>
                                     </li>
                                     <li>
-                                        <a href={{ url('/student') }}>Profile</a>
+                                        @if (Auth::user()->hasRole('student'))
+                                            <a href={{ url('/student') }}>Profile</a>
+                                        @elseif (Auth::user()->hasRole('faculty'))
+                                            <a href={{ url('/faculty') }}>Lab Dashboard</a>
+                                        @endif
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"

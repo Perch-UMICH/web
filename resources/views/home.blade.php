@@ -13,14 +13,12 @@
                     @if (Auth::user()->hasRole('student'))
                         You're a student!
                         Check out your <a href={{ url('/student') }}>Profile</a>
-                    @elseif (Auth::user()->hasRole('professor'))
-                        You're a professor!
-
-                        <h1>Your Labs</h1>
-                        <hr/>
+                    @elseif (Auth::user()->hasRole('faculty'))
+                        You're a faculty member!
+                        View your <a href={{ url('/faculty') }}>labs</a>.
 
                     @else
-                        You're account hasn't been authorized yet.
+                        Your account hasn't been authorized yet.
                     @endif
                 </div>
             </div>

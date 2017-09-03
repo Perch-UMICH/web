@@ -18,6 +18,7 @@ class CreateFacultyTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->unique()->index();
             $table->integer('lab_id')->unsigned()->unique()->index()->nullable();
+            $table->string('title');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('lab_id')->references('id')->on('labs');

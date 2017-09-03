@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Faculty;
 use Illuminate\Http\Request;
 use App\Lab;
+use App\Student;
 
 class LabController extends Controller
 {
@@ -48,7 +50,21 @@ class LabController extends Controller
     {
         $lab = Lab::where('id', '=', $id)->first();
 
-        return view('lab.show')->with(['lab' => $lab]);
+        // Find all student and faculty members of this lab
+
+        $faculty = array();
+
+        foreach (Faculty::where('lab_id', '=', $lab->id)->get() as $faculty_member) {
+            $faculty[] = $faculty_member;
+        }
+
+        $students = array();
+
+        foreach (Student::where('lab_id', '=', $lab->id)->get() as $student) {
+            $students[] = $student;
+        }
+
+        return view('lab.show')->with('lab', $lab)->with('students', $students)->with('faculty', $faculty);
     }
 
     /**
