@@ -22,6 +22,60 @@ class SkillsTableSeeder extends Seeder{
             'name' => 'Gel Electrophoresis',
             'description' => 'Separate mixtures of DNA, RNA, or proteins according to molecular size'
         ]);
+        DB::table('skills')->insert([
+            'name' => 'qPCR',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Western Blotting',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Southern Blotting',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'RNA Extraction with Trizol',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Cell Passaging',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'DNA Extraction',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Separatory Funnel Usage',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'TLC',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Purification and characterization of proteins, enzymes, and nucleic acids',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Into to computational biochemistry and bioniformatics',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Atomic Force Microscopy',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Optical tweezers',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'NMR',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'R',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Minitab',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Distillation',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Titration',
+        ]);
+        DB::table('skills')->insert([
+            'name' => 'Crystallization',
+        ]);
 
         // student_skills
         DB::table('student_skills')->delete();

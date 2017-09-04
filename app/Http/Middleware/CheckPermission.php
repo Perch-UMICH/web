@@ -15,8 +15,7 @@ class CheckPermission
      */
     public function handle($request, Closure $next)
     {
-        if ($request->student != auth()->user()->username) {
-
+        if ($request->user()->username != auth()->user()->username) {
             $url = explode("/", $request->path());
             array_pop($url);
             $url = implode('/', $url);

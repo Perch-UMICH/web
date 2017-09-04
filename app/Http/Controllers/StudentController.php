@@ -22,7 +22,7 @@ class StudentController extends Controller {
     public function __construct() {
         $this->middleware('auth');
         $this->middleware('checkRole:student')->only(['index', 'edit', 'update']);
-        $this->middleware('checkPermission')->only(['edit']);
+        $this->middleware('checkPermission')->only(['edit','update']);
     }
 
     /**

@@ -47,3 +47,11 @@ Route::resource('faculty', 'FacultyController', ['only' => [
 Route::resource('faculty', 'FacultyController', ['except' => [
     'create', 'store', 'destroy'
 ]]);
+
+Route::resource('skills', 'SkillController', ['only' => [
+    'index', 'store'
+]]);
+
+Route::resource('studentskills', 'StudentSkillController', ['only' => [
+    'show', 'edit', 'update'
+]]);

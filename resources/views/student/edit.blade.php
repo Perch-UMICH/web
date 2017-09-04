@@ -2,8 +2,7 @@
 @section('title', 'Profile')
 
 @section('header')
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{ asset('css/students_show.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/perch.css') }}" rel="stylesheet">
 @endsection
 
 @section('status')
@@ -81,20 +80,13 @@
                     </div>
                 </div>
                 @include('layouts.errors')
-                <p>
+                <div class="text-right btn-toolbar">
                     <input type="submit" class="btn btn-primary pull-right" value="Save Profile">
-                </p>
+                    <a href="{{url('/student/' . $username)}}" class="btn btn-danger pull-right">Cancel</a>
+                </div>
             </div>
         </form></div>
     </div>
-
-
-    <?php
-    echo '<pre>';
-    echo 'Debug Section<br><hr>';
-    print_r ($student);
-    echo '</pre>';
-    ?>
 
 @endsection
 

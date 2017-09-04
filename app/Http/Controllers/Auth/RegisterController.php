@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Student;
 use App\Faculty;
+use App\Student_Skill;
 use App\User;
 use App\Role;
 use App\Http\Controllers\Controller;
@@ -55,7 +56,7 @@ class RegisterController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'user-type' => 'required'
+            'user-type' => 'required',
         ]);
     }
 
@@ -79,7 +80,6 @@ class RegisterController extends Controller
         ]);
 
         // Attach necessary role
-
         $role = Role::where('name', $data['user-type'])->first();
         $user->attachRole($role);
 
@@ -98,6 +98,17 @@ class RegisterController extends Controller
             $profile = new Faculty();
             $profile->user_id = $user->id;
             $profile->save();
+        }
+
+        // Link skills to student
+        if ($data['user-type'] == 'student') {
+            $skills = json_decode($data['skills']);
+            foreach ($skills as $skillId) {
+                $student_skill = new Student_Skill();
+                $student_skill->user_id = $user->id;
+                $student_skill->skill_id = $skillId;
+                $student_skill->save();
+            }
         }
 
         return $user;

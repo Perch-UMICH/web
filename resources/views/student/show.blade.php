@@ -2,8 +2,7 @@
 @section('title', 'Profile')
 
 @section('header')
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{ asset('css/students_show.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/perch.css') }}" rel="stylesheet">
 @endsection
 
 @section('status')
@@ -119,7 +118,7 @@
                     <div class="panel-heading">
                         Skills
                         @if($student->user_id == auth()->id())
-                            <button type="button" class="btn btn-xs btn-primary pull-right">Update skills</button>
+                            <a href="{{ url('/studentskills/' . $username . '/edit') }}" type="button" class="btn btn-xs btn-primary pull-right">Update skills</a>
                         @endif
                     </div>
                     <div class="panel-body">
@@ -138,13 +137,6 @@
 
         </div>
     </div>
-
-    <?php
-    echo '<pre>';
-    echo 'Debug Section<br><hr>';
-    print_r ($skills);
-    echo '</pre>';
-    ?>
 
 @endsection
 

@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student_Skill extends Model{
     protected $table = 'student_skills';
+    protected $fillable = ['user_id', 'skill_id'];
 
     /**
      * This function returns skill associated with a row // $student_skill->skill
