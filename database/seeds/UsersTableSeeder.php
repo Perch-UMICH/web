@@ -50,7 +50,6 @@ class UsersTableSeeder extends Seeder
         $profile->major = 'Physics';
         $profile->year = 'Junior';
         $profile->gpa = '4.0';
-        $profile->lab_id = 1;
         $profile->save();
 
         // Create prof user
@@ -64,8 +63,9 @@ class UsersTableSeeder extends Seeder
 
         $profile = new Faculty();
         $profile->user_id = $prof->id;
-        $profile->lab_id = 1;
-        $profile->title = "Akira Nishii, MD, PhD";
+        $profile->name = "Akira Nishii";
+        $profile->title = "MD, PhD";
+        $profile->email = "anishii@umich.edu";
         $profile->save();
 
         // Create additional users

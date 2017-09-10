@@ -13,12 +13,13 @@ class CreateFacultyTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('faculties');
         Schema::create('faculties', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->unique()->index();
             $table->integer('lab_id')->unsigned()->unique()->index()->nullable();
-            $table->string('title');
+            $table->string('name')->index();
+            $table->string('title')->nullable();
+            $table->string('email');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('lab_id')->references('id')->on('labs');
@@ -32,6 +33,7 @@ class CreateFacultyTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('faculties');
     }
 }

@@ -15,9 +15,14 @@ class CreateLabsTable extends Migration
     {
         Schema::create('labs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('department');
-            $table->string('description');
+            $table->integer('PI')->unsigned()->index();
+            $table->string('name')->index();
+            $table->string('department')->index();
+            $table->string('location');
+            $table->text('researchAreas');
+            $table->text('description');
+            $table->text('publications');
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }
@@ -29,8 +34,6 @@ class CreateLabsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
-        Schema::dropIfExists('faculties');
         Schema::dropIfExists('labs');
     }
 }

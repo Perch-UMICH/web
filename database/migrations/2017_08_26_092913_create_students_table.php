@@ -24,7 +24,6 @@ class CreateStudentsTable extends Migration
             $table->string('year')->nullable();
             $table->double('gpa')->nullable();
             $table->string('linkedin_user')->nullable();
-            $table->string('profile_pic_link')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('lab_id')->references('id')->on('labs');

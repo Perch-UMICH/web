@@ -27,16 +27,16 @@ class ProfilePictureController extends Controller {
         $picture->store('public/profile_pic');
         $path = 'storage/profile_pic/' . $picture->hashName();
 
-        $student = Student::where('user_id', '=', Auth::id())->first();
+        $user = User::find(Auth::id());
         // if there is existing file, delete it
-        if ($student->profile_pic_link) {
-            $toDelete = explode('/', $student->profile_pic_link);
+        if ($user->picture) {
+            $toDelete = explode('/', $user->picture);
             Storage::delete('public/profile_pic/' . end($toDelete));
         }
 
         // save to db
-        $student->profile_pic_link = $path;
-        $student->save();
+        $user->picture = $path;
+        $user->save();
 
         // redirect
         return redirect('student');
@@ -50,11 +50,11 @@ class ProfilePictureController extends Controller {
      */
     public function show($username) {
         $userid = User::where('username', '=', $username)->first()->id;
-        $student = Student::where('user_id', '=', $userid)->first();
+        $user = User::find($userid);
 
         // profile picture exist, serve it
-        if ($student->profile_pic_link) {
-            $path = explode('/', $student->profile_pic_link);
+        if ($user->picture) {
+            $path = explode('/', $user->picture);
             $path = 'app/public/profile_pic/' . end($path);
             return response()->file(storage_path($path));
         }
