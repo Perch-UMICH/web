@@ -21,8 +21,8 @@
                             <div class="col-md-4">
                                 <div class="well well-lg">
                                 <h3>{{ $lab->name }}</h3>
-                                <h4><a href={{ url('/lab/' . $lab->id) }}>View</a></h4>
-                                <h4><a href='#'>Edit</a></h4>
+                                <h4><a href='{{ url('/lab/' . $lab->id) }}'>View</a></h4>
+                                <h4><a href='{{ url('/lab/' . $lab->id . '/edit') }}'>Edit</a></h4>
                                 </div>
                             </div>
                             </div>

@@ -10,7 +10,18 @@
 
     <div id="labs_show" class="container">
         <div class="col-md-10">
-            <h1>{{ $lab->name }}</h1>
+            <h1>{{ $lab->name }}
+                <!-- Check if auth user is a faculty of the lab -->
+                @php ($edit = false)
+                @foreach ($facultyid as $id)
+                    @if ($id == auth()->id())
+                        @php ($edit = true)
+                    @endif
+                @endforeach
+                @if ($edit)
+                    <a href={{ url('/lab/' . $lab->id . '/edit') }} type="button" class="btn btn-sm btn-primary pull-right">Update lab page</a>
+                @endif
+            </h1>
             <h3>{{ $lab->department }}</h3>
             <hr/>
             <h3>Research</h3>
@@ -19,9 +30,6 @@
             <hr/>
             <h3>Publications</h3>
             <p>{!! nl2br($lab->publications) !!}</p>
-            <p>
-
-            </p>
         </div>
         <div class="col-md-2">
             <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture" class="img-responsive hidden-sm hidden-xs">
@@ -30,9 +38,17 @@
             <p><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
                 <a href="mailto:{{$PI->email}}">{{ $PI->email }}</a>
             </p>
+            <p><i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
+            @if ($lab->url)
+                <a href="{{ $lab->url }}" class="btn btn-xs btn-warning"
+                   data-toggle="tooltip" title="{{ $lab->url }}">Lab Page</a>
+            @else
+                <button type="button" class="btn btn-xs btn-warning" disabled="disabled">Lab Page</button>
+            @endif
+            </p>
             <hr/>
             <h3>Research Area(s)</h3>
-                <p>{!! nl2br(e($lab->researchAreas)) !!}</p>
+                <p>{!! nl2br($lab->researchAreas) !!}</p>
             <hr/>
             <h3>
                 @if (count($faculty) == 1)
@@ -59,6 +75,7 @@
 @section('scripts')
     <script src="{{ asset('js/jquery.fittext.js') }}"></script>
     <script type="text/javascript">
+        $('[data-toggle="tooltip"]').tooltip();
         $(document).ready(function(){
             $("#PI").fitText();
         });

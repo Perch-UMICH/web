@@ -57,7 +57,7 @@
                             <h2 id="links_title">Links</h2>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-linkedin-square fa-fw" aria-hidden="true"></i></span>
-                                <input id="linkedin" type="url" step="0.01" class="form-control" name="linkedin" placeholder="https://linkedin.com/in/user" value="{{ $student->linkedin_user }}">
+                                <input id="linkedin" type="url" class="form-control" name="linkedin" placeholder="https://linkedin.com/in/user" value="{{ $student->linkedin_user }}">
                             </div>
                         </div>
 
