@@ -1,162 +1,115 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
+@section('title', 'Welcome')
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('header')
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/splash.css') }}" rel="stylesheet">
+@endsection
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+@section('content')
+    <!-- Logo Section -->
+    <div class="parallax-container center-align">
+        <img class="logo" src="{{ asset('images/perch_round_blue.png') }}">
+        <div class="white-text">
+            <h3 class="logo-caption blue-text text-lighten-1">De-<span class="blue-text text-darken-3">awkwardizing</span> Research</h3>
+        </div>
+        <!--div class="parallax"><img class="parallax-image" src=" {{ asset('images/doctors.jpg') }} "></--div-->
+    </div>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/perch.css') }}" rel="stylesheet">
-</head>
-<body>
-<!-- Global Site Tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106749397-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-106749397-1');
-</script>
-<!-- Google Analytics Ends -->
-<div id="app">
-    <div style="width: 50%; margin: auto; text-align: center;">
+    <!-- Info Section 1 -->
+    <div class="heading light-blue darken-2">
         <div class="row">
-            <p id="logo">Perch</p>
-        </div>
-        <div class="row">
-            <p>New to Perch?</p>
-        </div>
-        <div class="row" style="margin-bottom: 20px;">
-
-            <div class="col-sm-4">
-                <div id="welcome-button"><a href="/register">Student</a></div>
+            <div class="col s12 m6 l6">
+                <div class="light-blue darken-2 white-text">
+                    <h4 class="">Finding a Lab Sucks</h4>
+                    <span class="flow-text grey-text text-lighten-4">It's a pain in the ass. No one knows where to go or what labs do.
+          </span>
+                    <blockquote class="blue-text text-lighten-5">Its a pain!</blockquote>
+                    <blockquote class="blue-text text-lighten-5">Its a pain!</blockquote>
+                    <blockquote class="blue-text text-lighten-5">Its a pain!</blockquote>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <div id="welcome-button"><a href="/register">Professor</a></div>
+            <div class="col s12 m6 l6">
+                <div class="light-blue darken-2 white-text">
+                    <h4 class="">Perch wants to fight back</h4>
+                    <span class="flow-text grey-text text-lighten-4">We're strealining the process so everyone gets into their best fit lab. This is a super cool platform you should join
+          </span>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <div id="welcome-button"><a href="/register">About</a></div>
-            </div>
-
-        </div>
-        <div class="row">
-            <p>Existing User</p>
-        </div>
-        <div class="col-sm-4 col-sm-offset-4">
-            <div id="welcome-button"><a href="/login">Login Here</a></div>
+            <div class="spacer col m1 show-on-medium"></div>
+            <div class="spacer col l4 show-on-large"></div>
+            <div class="spacer col m1 show-on-medium"></div>
         </div>
     </div>
-</div>
 
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
+    <!-- Popout Collabsable Section -->
+    <div class="row light-blue accent-1 valign-wrapper more-info">
+        <div class="col m2 hide-on-large-only"></div>
+        <div class="col s12 m8 l8">
+            <ul class="collapsible infographic popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header white lighten-2 grey-text text-darken-4 active"><i class="material-icons">language</i>Readable Lab Pages</div>
+                    <div class="collapsible-body white lighten-2 grey-text text-darken-4 black-text"><span>Bacon ipsum dolor amet chicken bresaola boudin tri-tip cupim pork loin alcatra shank. Pancetta ball tip prosciutto </span></div>
+                </li>
 
+                <li>
+                    <div class="collapsible-header white lighten-2 grey-text text-darken-4"><i class="material-icons">question_answer</i>Transparency</div>
+                    <div class="collapsible-body white lighten-2 grey-text text-darken-4 black-text"><span>Bacon ipsum dolor amet chicken bresaola boudin tri-t</span></div>
+                </li>
 
-{{--<!doctype html>--}}
-{{--<html lang="{{ app()->getLocale() }}">--}}
-    {{--<head>--}}
-        {{--<meta charset="utf-8">--}}
-        {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-        {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
+                <li>
+                    <div class="collapsible-header white lighten-2 grey-text text-darken-4"><i class="material-icons">location_searching</i>All in one place</div>
+                    <div class="collapsible-body white lighten-2 grey-text text-darken-4 black-text"><span>Bacon ipsum dolor amet chicken bresaola boudin tri-tip cupim pork loin alcatra shank. Pancetta ball tip prosciutto burgdoggen fatback bresaola swine. Rump flank doner </span></div>
+                </li>
 
-        {{--<title>Laravel</title>--}}
+            </ul>
+        </div>
+        <div class="col m12 l3 valign-wrapper about-btn"><a href="{{ url('about') }}" class="waves-effect waves-light btn-large red">Click For More</a></div>
 
-        {{--<!-- Fonts -->--}}
-        {{--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
+    </div>
 
-        {{--<!-- Styles -->--}}
-        {{--<style>--}}
-            {{--html, body {--}}
-                {{--background-color: #fff;--}}
-                {{--color: #636b6f;--}}
-                {{--font-family: 'Raleway', sans-serif;--}}
-                {{--font-weight: 100;--}}
-                {{--height: 100vh;--}}
-                {{--margin: 0;--}}
-            {{--}--}}
+    <!-- Form Section -->
+    <div class="section-2 valign-wrapper">
+        <div class="input-form container grey lighten-5 z-depth-3">
+            <div class="container">
+                <div class="form-header center-align grey-text text-darken-3">Interested?</div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="first_name" type="text" class="validate" required>
+                                <label for="first">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate" required>
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate" required>
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <input class="radio" name="user-type" type="radio" id="faculty" required/>
+                        <label for="faculty">Faculty</label>
+                        <input class="radio" name="user-type" type="radio" id="student" required/>
+                        <label for="student">Student</label>
+                        <div class="row center-align">
+                            <button class="btn waves-effect waves-light blue pulse" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Section 2 -->
+@endsection
 
-            {{--.full-height {--}}
-                {{--height: 100vh;--}}
-            {{--}--}}
-
-            {{--.flex-center {--}}
-                {{--align-items: center;--}}
-                {{--display: flex;--}}
-                {{--justify-content: center;--}}
-            {{--}--}}
-
-            {{--.position-ref {--}}
-                {{--position: relative;--}}
-            {{--}--}}
-
-            {{--.top-right {--}}
-                {{--position: absolute;--}}
-                {{--right: 10px;--}}
-                {{--top: 18px;--}}
-            {{--}--}}
-
-            {{--.content {--}}
-                {{--text-align: center;--}}
-            {{--}--}}
-
-            {{--.title {--}}
-                {{--font-size: 84px;--}}
-            {{--}--}}
-
-            {{--.links > a {--}}
-                {{--color: #636b6f;--}}
-                {{--padding: 0 25px;--}}
-                {{--font-size: 12px;--}}
-                {{--font-weight: 600;--}}
-                {{--letter-spacing: .1rem;--}}
-                {{--text-decoration: none;--}}
-                {{--text-transform: uppercase;--}}
-            {{--}--}}
-
-            {{--.m-b-md {--}}
-                {{--margin-bottom: 30px;--}}
-            {{--}--}}
-        {{--</style>--}}
-    {{--</head>--}}
-    {{--<body>--}}
-        {{--<div class="flex-center position-ref full-height">--}}
-            {{--@if (Route::has('login'))--}}
-                {{--<div class="top-right links">--}}
-                    {{--@if (Auth::check())--}}
-                        {{--<a href="{{ url('/home') }}">Home</a>--}}
-                    {{--@else--}}
-                        {{--<a href="{{ url('/login') }}">Login</a>--}}
-                        {{--<a href="{{ url('/register') }}">Register</a>--}}
-                    {{--@endif--}}
-                {{--</div>--}}
-            {{--@endif--}}
-
-            {{--<div class="content">--}}
-                {{--<div class="title m-b-md">--}}
-                    {{--Laravel--}}
-                {{--</div>--}}
-
-                {{--<div class="links">--}}
-                    {{--<a href="https://laravel.com/docs">Documentation</a>--}}
-                    {{--<a href="https://laracasts.com">Laracasts</a>--}}
-                    {{--<a href="https://laravel-news.com">News</a>--}}
-                    {{--<a href="https://forge.laravel.com">Forge</a>--}}
-                    {{--<a href="https://github.com/laravel/laravel">GitHub</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-
-            {{--@if (Auth::check())--}}
-                {{--<p>You care logged in as a {{Auth::user()->role}}</p>--}}
-                {{--@endif--}}
-        {{--</div>--}}
-    {{--</body>--}}
-{{--</html>--}}
+@section('scripts')
+    <script src="{{ asset('js/materialize.min.js') }}"></script>
+    <script src="{{ asset('js/init.js') }}"></script>
+@endsection

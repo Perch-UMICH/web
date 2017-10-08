@@ -1,0 +1,193 @@
+.heading {
+  /*height:100vh;*/
+  padding: 10px 15px;
+  background-color: #e1f5fe;
+
+}
+
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+  background-color: #03a9f4;
+  border-color: #03a9f4;
+}
+
+.about-btn {
+  height: inherit;
+  /*margin-left: 0px;*/
+}
+
+.more-info {
+  min-height: 70vh;
+
+}
+
+.infographic {
+  /*padding-top: 25vh;*/
+  /*margin-top: 30px;*/
+  /*margin: 5vh;*/
+}
+.row {
+  margin-bottom: 0px;
+}
+.col .m6{
+  padding: 0;
+}
+
+.divider  {
+  width: 80%;
+  margin: 10px auto;
+  background-color: #ffffff;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.logo-caption {
+
+}
+
+blockquote {
+  border-color: #81d4fa;
+}
+
+.logo {
+  /*max-width: 80vh;*/
+  max-width: 30vh;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  /*margin-top: 10vh;*/
+}
+
+.parallax-container {
+  height: 100vh;
+}
+
+.parallax-image {
+  max-width: 180vh;
+}
+
+.dictionary-entry {
+  background-color: #fafafa;
+  letter-spacing: 1px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 280px;
+}
+
+.row {
+  /*margin: 0;*/
+  margin-left: 0;
+}
+
+.dictionary-word {
+  font-size: 50px;
+  color: #616161;
+}
+
+.dictionary-pronunciation {
+  font-size: 30px;
+  color: #bdbdbd;
+}
+
+.dictionary-adjective {
+  font-size: 30px;
+  color: #616161;
+}
+
+.dictionary-definition {
+  font-size: 20px;
+  color: #616161;
+}
+
+.dictionary-example {
+  font-size: 70px;
+  color: #f44336;
+  display: none;
+  /*line-height: 250px;*/
+  /*letter-spacing: 2px;*/
+  /*font-style: italic;*/
+}
+
+.dic-def {
+  font-size: 30px;
+  display: none;
+  /*line-height: 250px;*/
+  color: #616161;
+}
+
+.section-1 {
+  /*height: 800px;*/
+  height:100vh;
+}
+
+h3 {
+  letter-spacing: 6px;
+}
+
+.section-2 {
+  height: 400px;
+    /*background-color: #f44336;*/
+    background-color: #cfd8dc;
+/*  background-image:
+    linear-gradient(
+      to top right, 
+      #01579b, #00e5ff
+    );*/
+}
+
+
+
+.btn {
+  margin-bottom: 20px;
+  margin-right: 10px;
+  float: right;
+}
+
+.input-form {
+  padding-top: 20px;
+}
+
+.form-header {
+  font-size: 50px;
+  letter-spacing: 1px;
+}
+
+.logo-section {
+  height: 100vh;
+}
+
+.logo {
+  width: 80vw;
+}
+
+#first_name:focus + label, #last_name:focus + label, #email:focus + label {
+  color: #29b6f6;
+}
+
+#first_name:focus, #last_name:focus, #email:focus {
+  border-bottom: 1px solid #29b6f6;
+  box-shadow: 0 1px 0 0 #29b6f6;
+}
+
+@media only screen and (max-width: 400) {
+  .dictionary-example {
+    font-size: 20px;
+    color: #f44336;
+    display: none;
+    /*line-height: 250px;*/
+    /*letter-spacing: 2px;*/
+    /*font-style: italic;*/
+  }
+}
+
+.member-pic {
+    object-fit: cover;
+}
+
+.header h1{
+  padding: 40px;
+  margin: 0;
+}
+
