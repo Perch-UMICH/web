@@ -71,8 +71,8 @@
                     <p>Password: test</p>
                     <hr>
                     <h5>Professor Account</h5>
-                    <p>Email: anishii@umich.edu</p>
-                    <p>Password: password</p>
+                    <p>Email: faculty@perch.com</p>
+                    <p>Password: test</p>
                 </div>
             </div>
         </div>

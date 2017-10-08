@@ -52,7 +52,7 @@ class UsersTableSeeder extends Seeder
         $profile->gpa = '4.0';
         $profile->save();
 
-        // Create prof user
+        // Create faculty user
         $prof = new User();
         $prof->name = 'akira';
         $prof->username = 'anishii';
@@ -66,6 +66,22 @@ class UsersTableSeeder extends Seeder
         $profile->name = "Akira Nishii";
         $profile->title = "MD, PhD";
         $profile->email = "anishii@umich.edu";
+        $profile->save();
+
+        // Create additional faculty
+        $prof = new User();
+        $prof->name = 'perch';
+        $prof->username = 'perch_faculty';
+        $prof->email = 'faculty@perch.com';
+        $prof->password = bcrypt('test');
+        $prof->save();
+        $prof->attachRole($role_faculty);
+
+        $profile = new Faculty();
+        $profile->user_id = $prof->id;
+        $profile->name = "Perch Faculty";
+        $profile->title = "Graduate Researcher";
+        $profile->email = "faculty@perch.com";
         $profile->save();
 
         // Create additional users

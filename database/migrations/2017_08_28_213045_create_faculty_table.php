@@ -16,7 +16,7 @@ class CreateFacultyTable extends Migration
         Schema::create('faculties', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->unique()->index();
-            $table->integer('lab_id')->unsigned()->unique()->index()->nullable();
+            $table->integer('lab_id')->unsigned()->index()->nullable();
             $table->string('name')->index();
             $table->string('title')->nullable();
             $table->string('email');
