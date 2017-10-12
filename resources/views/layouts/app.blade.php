@@ -21,16 +21,7 @@
     @yield('header')
 </head>
 <body>
-<!-- Global Site Tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106749397-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-106749397-1');
-</script>
-<!-- Google Analytics Ends -->
+@extends('layouts.analytics')
 @yield('status')
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">

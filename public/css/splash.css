@@ -1,165 +1,172 @@
-.heading {
-  /*height:100vh;*/
-  padding: 10px 15px;
-  background-color: #e1f5fe;
+.nav-logo {
+  height: 80px;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+nav {
+  height: 90px;
+  line-height: 90px;
+  /*background-color: #724c82;*/
+  background-color: #0277bd;
+  /*background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #d1d1d1 50%);*/
+  box-shadow: none;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+  height: 90px;
+  line-height: 90px;
+}
+
+nav .button-collapse {
+  /*margin-right: 0px;*/
 
 }
 
-
-[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
-  background-color: #03a9f4;
-  border-color: #03a9f4;
+nav .button-collapse i {
+  height: 90px;
+  line-height: 90px;
 }
 
-.about-btn {
-  height: inherit;
-  /*margin-left: 0px;*/
+nav .brand-logo {
+  font-size: 1.6rem;
 }
 
-.more-info {
-  min-height: 70vh;
-
+@media only screen and (min-width: 601px){
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 90px;
+    line-height: 90px;
+  }
 }
 
-.infographic {
-  /*padding-top: 25vh;*/
-  /*margin-top: 30px;*/
-  /*margin: 5vh;*/
-}
-.row {
-  margin-bottom: 0px;
-}
-.col .m6{
-  padding: 0;
+.first-tab {
+  margin-top: 26px;
 }
 
-.divider  {
-  width: 80%;
-  margin: 10px auto;
-  background-color: #ffffff;
+.infoitem {
+  /*margin-top: 100px;*/
 }
 
-.spacer {
-  height: 10px;
+.infoitem i {
+  font-size: 100px;
 }
 
-.logo-caption {
-
-}
-
-blockquote {
-  border-color: #81d4fa;
-}
-
-.logo {
-  /*max-width: 80vh;*/
-  max-width: 30vh;
-  margin-top: 10vh;
-  margin-bottom: 5vh;
-  /*margin-top: 10vh;*/
-}
-
-.parallax-container {
+.cover {
   height: 100vh;
 }
 
-.parallax-image {
-  max-width: 180vh;
-}
+/*.parallax-container {
+  	height: 100vh;
+  	opacity: 0.9;
+}*/
 
-.dictionary-entry {
-  background-color: #fafafa;
-  letter-spacing: 1px;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  min-height: 280px;
-}
-
-.row {
-  /*margin: 0;*/
-  margin-left: 0;
-}
-
-.dictionary-word {
-  font-size: 50px;
-  color: #616161;
-}
-
-.dictionary-pronunciation {
-  font-size: 30px;
-  color: #bdbdbd;
-}
-
-.dictionary-adjective {
-  font-size: 30px;
-  color: #616161;
-}
-
-.dictionary-definition {
-  font-size: 20px;
-  color: #616161;
-}
-
-.dictionary-example {
-  font-size: 70px;
-  color: #f44336;
-  display: none;
-  /*line-height: 250px;*/
-  /*letter-spacing: 2px;*/
-  /*font-style: italic;*/
-}
-
-.dic-def {
-  font-size: 30px;
-  display: none;
-  /*line-height: 250px;*/
-  color: #616161;
-}
-
-.section-1 {
-  /*height: 800px;*/
-  height:100vh;
-}
-
-h3 {
-  letter-spacing: 6px;
-}
-
-.section-2 {
-  height: 400px;
-    /*background-color: #f44336;*/
-    background-color: #cfd8dc;
-/*  background-image:
-    linear-gradient(
-      to top right, 
-      #01579b, #00e5ff
-    );*/
+.logo {
+  height: 225px;
 }
 
 
-
-.btn {
-  margin-bottom: 20px;
-  margin-right: 10px;
-  float: right;
+.tab2L {
+  height: 1000px;
+  background-color: rgba(122, 207, 214, 0.6);
 }
 
-.input-form {
-  padding-top: 20px;
+.tab2 {
+  height: 100vh;
+  background-color: rgba(122, 207, 214, 0.6);
 }
 
+.tab3 {
+  height: 100vh;
+  background-color: rgba(41, 182, 246, 0.6);
+}
+
+.tab4 {
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);  /* fallback for old browsers */
+  background-image: -webkit-linear-gradient(left, rgba(41, 182, 246, .7) 0%,rgba(122, 207, 214, .7) 100%);
+
+}
+
+body {
+  background-image: url(../images/PERCH_BACKGROUND.svg);
+}
+
+#sidenav-overlay {
+  z-index: 996;
+}
+
+#hamburger {
+  font-size: 60px;
+  color: white;
+  /*background-color: #4fc3f7;*/
+  margin-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.awkward {
+  color: rgb(41, 182, 246);
+  background-color: white;
+  padding: 5px;
+  margin: 0px;
+  /*font-size: 1.4em;*/
+  /*border-bottom: 1px solid white;*/
+}
+
+.awkward-top {
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  padding: 5px;
+  color: white;
+  margin-bottom: -2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.awkward-bottom {
+  border: 2px solid white;
+  padding: 5px;
+  color: rgb(41, 182, 246);
+  background-color: white;
+  padding-left: 83px;
+  padding-right: 83px;
+
+}
+
+.catchphrase {
+  letter-spacing: 3px;
+  font-size: 40px;
+
+}
+
+.infodescriptor {
+  max-width: 200px;
+  /*margin: 20px;*/
+}
+
+/*FORM*/
 .form-header {
   font-size: 50px;
   letter-spacing: 1px;
 }
 
-.logo-section {
-  height: 100vh;
+.form-container {
+  padding-top: 20vh;
 }
 
-.logo {
-  width: 80vw;
+.header {
+  font-size: 50px;
+}
+
+.perch {
+  margin-top: 0px;
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+  background-color: #03a9f4;
+  border-color: #03a9f4;
 }
 
 #first_name:focus + label, #last_name:focus + label, #email:focus + label {
@@ -171,23 +178,60 @@ h3 {
   box-shadow: 0 1px 0 0 #29b6f6;
 }
 
-@media only screen and (max-width: 400) {
-  .dictionary-example {
-    font-size: 20px;
-    color: #f44336;
-    display: none;
-    /*line-height: 250px;*/
-    /*letter-spacing: 2px;*/
-    /*font-style: italic;*/
-  }
-}
-
-.member-pic {
-    object-fit: cover;
-}
-
-.header h1{
+.team-header h1{
   padding: 40px;
   margin: 0;
 }
 
+.sub-team-header {
+  background-color: rgba(122, 207, 214, 0.6);
+  padding-bottom: 5px;
+}
+
+.sub-team-header-2 {
+  background-color: rgba(41, 182, 246, 0.6);
+  padding-bottom: 5px;
+}
+
+.sub-team-header h3, .sub-team-header-2 h3{
+  padding: 20px;
+  margin: 0;
+  font-size: 70px;
+}
+
+.nav-option {
+  font-size: 50px;
+}
+
+.form-container	{
+  padding-top: 30px;
+}
+
+.group-photo {
+  width: 100%;
+  margin-bottom: -50px;
+}
+
+blockquote {
+  border-color: rgb(89, 202, 255) ;
+}
+
+#block-solution {
+  color: #9e9e9e;
+  border-color: white;
+  padding: 5px 10px;
+  opacity: .9;
+}
+#research-mobile {
+  /*margin-top: 52px;*/
+  color: rgb(41, 182, 246);
+}
+
+.awkward-mobile {
+  font-size: 30px;
+  border: 2px solid white;
+}
+
+.submit-container {
+  margin-top: 15px;
+}
