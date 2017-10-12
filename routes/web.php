@@ -59,3 +59,7 @@ Route::resource('skills', 'SkillController', ['only' => [
 Route::resource('studentskills', 'StudentSkillController', ['only' => [
     'show', 'edit', 'update'
 ]]);
+
+Route::resource('interested', 'NewsletterController', ['only' => [
+    'index', 'store'
+]]);

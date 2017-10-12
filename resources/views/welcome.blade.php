@@ -170,26 +170,27 @@
                 <div class="container">
                     <div class="form-header center-align grey-text text-darken-3">Interested?</div>
                     <div class="row">
-                        <form class="col s12">
+                        <form class="col s12" method="POST" action="{{ url('interested') }}">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="first_name" type="text" class="validate" required>
-                                    <label for="first">First Name</label>
+                                    <input id="first_name" name="first_name" type="text" class="validate" required>
+                                    <label for="first_name">First Name</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="last_name" type="text" class="validate" required>
+                                    <input id="last_name" name="last_name" type="text" class="validate" required>
                                     <label for="last_name">Last Name</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="email" type="email" class="validate" required>
+                                    <input id="email" name="email" type="email" class="validate" required>
                                     <label for="email">Email</label>
                                 </div>
                             </div>
-                            <input class="radio" name="user-type" type="radio" id="faculty" required/>
+                            <input class="radio" name="user_type" type="radio" id="faculty" value="faculty" required/>
                             <label for="faculty">Faculty</label>
-                            <input class="radio" name="user-type" type="radio" id="student" required/>
+                            <input class="radio" name="user_type" type="radio" id="student" value="student" required/>
                             <label for="student">Student</label>
                             <div class="submit-container row center-align">
                                 <button class="btn waves-effect waves-light green pulse" type="submit" name="action">Submit

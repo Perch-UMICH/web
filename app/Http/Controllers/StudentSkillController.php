@@ -25,7 +25,7 @@ class StudentSkillController extends Controller
     public function show($username)
     {
         $skills = array();
-        $student_skills = User::find(Auth::id())->student_skills;
+        $student_skills = User::where('username','=', $username)->first()->student_skills;
         foreach ($student_skills as $skill) {
             $skills[$skill->skill->id] = $skill->skill->name;
         }
