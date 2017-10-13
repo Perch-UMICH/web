@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.jpg">
+  <img src="http://umich.edu/~perchres/assets/LOGO.svg" width='200px'>
 </div>
 
 -----------------
@@ -31,5 +31,5 @@
     
 ## Learn more
  * [Facebook](https://www.facebook.com/groups/319938491783428/)
- * [Perch Website](http://perch.umich.edu)
+ * [Perch Website](http://umich.edu/~perchres)
  * [Current Demo](http://perch.us-east-1.elasticbeanstalk.com)
