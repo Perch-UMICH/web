@@ -23,6 +23,9 @@ class CreateLabsTable extends Migration
             $table->text('description');
             $table->text('publications');
             $table->string('url')->nullable();
+            // lab qualifications
+            $table->float('gpa')->nullable(); // required gpa to apply
+            $table->integer('weeklyCommitment')->nullable(); // weekly time commitment
             $table->timestamps();
         });
     }

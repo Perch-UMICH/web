@@ -28,6 +28,8 @@ DESC;
 Nishii, A. “Title”. Journal, <b>2016</b>, Volume (issue), Pages.
 Nishii, A. “Title”. Journal, <b>2015</b>, Volume (issue), Pages.";
         $lab->location = "1 Chemistry";
+        $lab->gpa = 3.5;
+        $lab->weeklyCommitment = 15;
         $lab->save();
 
         $profile = \App\Faculty::find('1');
@@ -57,6 +59,7 @@ DESC;
 Perch, F. “Title”. Journal, <b>2016</b>, Volume (issue), Pages.
 Perch, F. “Title”. Journal, <b>2015</b>, Volume (issue), Pages.";
         $lab->location = "1 Biology";
+        $lab->weeklyCommitment = 10;
         $lab->save();
     }
 }

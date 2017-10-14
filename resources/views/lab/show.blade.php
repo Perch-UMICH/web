@@ -27,9 +27,51 @@
             <h3>Research</h3>
             <!-- HTML enabled -->
             <p>{!! nl2br($lab->description) !!}</p>
-            <hr/>
+            <hr />
             <h3>Publications</h3>
             <p>{!! nl2br($lab->publications) !!}</p>
+            <hr />
+            <h3>Qualifications</h3>
+            @if (count($requiredSkills) != 0 or count($prefSkills) != 0 or $lab->gpa !== null or $lab->weeklyCommitment !== null)
+                @if (count($requiredSkills) != 0 or $lab->gpa !== null or $lab->weeklyCommitment !== null)
+                    <h4>Required</h4>
+                @endif
+                @if ($lab->gpa !== null)
+                    <p><i class="fa fa-chevron-right fa-fw" aria-hidden="true"></i>
+                        Minimum GPA: {{ $lab->gpa }}</p>
+                @endif
+                @if ($lab->weeklyCommitment !== null)
+                    <p><i class="fa fa-chevron-right fa-fw" aria-hidden="true"></i>
+                        {{ $lab->weeklyCommitment . ' hours/week commitment.' }}</p>
+                @endif
+                @if (count($requiredSkills) != 0)
+                    <p><i class="fa fa-chevron-right fa-fw" aria-hidden="true"></i>
+                        Skills:
+                        @for ($i = 0; $i < count($requiredSkills); $i++)
+                            @if ($i < count($requiredSkills) - 1)
+                                {{ $requiredSkills[$i]->name . ', ' }}
+                            @else
+                                {{ $requiredSkills[$i]->name }}
+                            @endif
+                        @endfor
+                    </p>
+                @endif
+                @if (count($prefSkills) != 0)
+                    <h4>Preferred</h4>
+                    <p><i class="fa fa-chevron-right fa-fw" aria-hidden="true"></i>
+                        Skills:
+                        @for ($i = 0; $i < count($prefSkills); $i++)
+                            @if ($i < count($prefSkills) - 1)
+                                {{ $prefSkills[$i]->name . ', ' }}
+                            @else
+                                {{ $prefSkills[$i]->name }}
+                            @endif
+                        @endfor
+                    </p>
+                @endif
+            @else
+                <p>No qualifications listed.</p>
+            @endif
         </div>
         <div class="col-md-2">
             <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture" class="img-responsive hidden-sm hidden-xs">

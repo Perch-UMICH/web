@@ -76,8 +76,13 @@ class LabController extends Controller
             $facultyid[] = $faculty_member->user->id;
         }
 
+        // Find skills
+        $required = $lab->skills()->where('required', '=',1)->get();
+        $preferred = $lab->skills()->where('required', '=',0)->get();
+
         return view('lab.show')->with('lab', $lab)->with('students', $students)->with('faculty', $faculty)
-            ->with('facultyid', $facultyid)->with('PI', $PI)->with('username', $username);
+            ->with('facultyid', $facultyid)->with('PI', $PI)->with('username', $username)
+            ->with('requiredSkills', $required)->with('prefSkills', $preferred);
     }
 
     /**

@@ -21,4 +21,13 @@ class Lab extends Model
     public function students() {
         return $this->hasMany('App\Student');
     }
+
+    /**
+     * Get all skills this lab has
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function skills() {
+        return $this->belongsToMany('App\Skill', 'lab_skills');
+    }
 }
