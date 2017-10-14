@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('last_name');
             $table->text('bio')->nullable();
             $table->string('major')->nullable();
-            $table->string('year')->nullable();
+            $table->string('year');
             $table->double('gpa')->nullable();
             $table->string('linkedin_user')->nullable();
             $table->timestamps();

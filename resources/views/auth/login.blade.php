@@ -70,7 +70,7 @@
                     <p>Email: test@perch.com</p>
                     <p>Password: test</p>
                     <hr>
-                    <h5>Professor Account</h5>
+                    <h5>Faculty Account</h5>
                     <p>Email: faculty@perch.com</p>
                     <p>Password: test</p>
                 </div>

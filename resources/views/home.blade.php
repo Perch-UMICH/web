@@ -9,14 +9,19 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are {{Auth::user()->name}}.
+                    <p>Welcome back,
                     @if (Auth::user()->hasRole('student'))
+                        {{ Auth::user()->student->first_name }}.
+                    </p><p>
                         You're a student!
                         Check out your <a href={{ url('/student') }}>Profile</a>
+                    </p>
                     @elseif (Auth::user()->hasRole('faculty'))
+                        {{ Auth::user()->faculty->first_name }}.
+                        </p><p>
                         You're a faculty member!
                         View your <a href={{ url('/faculty') }}>labs</a>.
-
+                    </p>
                     @else
                         Your account hasn't been authorized yet.
                     @endif

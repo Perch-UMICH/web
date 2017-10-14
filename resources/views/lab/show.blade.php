@@ -75,7 +75,7 @@
         </div>
         <div class="col-md-2">
             <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture" class="img-responsive hidden-sm hidden-xs">
-            <h3 id="PI" style="text-align: center;">{{$PI->name}}</h3>
+            <h3 id="PI" style="text-align: center;">{{$PI->first_name . ' ' . $PI->last_name}}</h3>
             <p><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> {{ $lab->location }}</p>
             <p><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
                 <a href="mailto:{{$PI->email}}">{{ $PI->email }}</a>
@@ -100,13 +100,13 @@
                 @endif
             </h3>
             @foreach ($faculty as $faculty_member)
-                <p>{{ $faculty_member->name . ', ' . $faculty_member->title }}</p>
+                <p>{{ $faculty_member->first_name . ' ' . $faculty_member->last_name . ', ' . $faculty_member->title }}</p>
             @endforeach
             <hr/>
 
             <h3>Current Students</h3>
             @foreach ($students as $student)
-                <p>{{ $student->first_name }} {{ $student->last_name }}</p>
+                <p>{{ $student->first_name . ' ' . $student->last_name }}</p>
             @endforeach
             <hr/>
         </div>

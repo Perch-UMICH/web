@@ -35,7 +35,6 @@ class UsersTableSeeder extends Seeder
 
         // Create student user
         $student = new User();
-        $student->name = 'akshay';
         $student->username = 'akshayro';
         $student->email = 'akshayro@umich.edu';
         $student->password = bcrypt('password');
@@ -54,7 +53,6 @@ class UsersTableSeeder extends Seeder
 
         // Create faculty user
         $prof = new User();
-        $prof->name = 'akira';
         $prof->username = 'anishii';
         $prof->email = 'anishii@umich.edu';
         $prof->password = bcrypt('password');
@@ -63,14 +61,14 @@ class UsersTableSeeder extends Seeder
 
         $profile = new Faculty();
         $profile->user_id = $prof->id;
-        $profile->name = "Akira Nishii";
+        $profile->first_name = "Akira";
+        $profile->last_name = "Nishii";
         $profile->title = "MD, PhD";
         $profile->email = "anishii@umich.edu";
         $profile->save();
 
         // Create additional faculty
         $prof = new User();
-        $prof->name = 'perch';
         $prof->username = 'perch_faculty';
         $prof->email = 'faculty@perch.com';
         $prof->password = bcrypt('test');
@@ -79,14 +77,14 @@ class UsersTableSeeder extends Seeder
 
         $profile = new Faculty();
         $profile->user_id = $prof->id;
-        $profile->name = "Perch Faculty";
+        $profile->first_name = "Perch";
+        $profile->last_name = "Faculty";
         $profile->title = "Graduate Researcher";
         $profile->email = "faculty@perch.com";
         $profile->save();
 
         // Create additional users
         $student = new User();
-        $student->name = 'han';
         $student->username = 'wangha31';
         $student->email = 'wangha31@msu.edu';
         $student->password = bcrypt('password');
@@ -104,7 +102,6 @@ class UsersTableSeeder extends Seeder
 
         // Create additional users
         $student = new User();
-        $student->name = 'perch';
         $student->username = 'perch';
         $student->email = 'test@perch.com';
         $student->password = bcrypt('test');
@@ -115,6 +112,7 @@ class UsersTableSeeder extends Seeder
         $profile->user_id = $student->id;
         $profile->first_name = 'Perch';
         $profile->last_name = 'User';
+        $profile->year = 'Freshman';
         $profile->major = 'Biology';
         $profile->save();
     }
