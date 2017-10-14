@@ -46,7 +46,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -63,7 +63,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\User
      */
     protected function create(array $data)
@@ -73,7 +73,6 @@ class RegisterController extends Controller
         $username = substr($email, strpos($email,"<"), strrpos($email, "@")-strpos($email,"<"));
 
         $user = User::create([
-            'name' => $data['first_name'],
             'email' => $data['email'],
             'username' => $username,
             'password' => bcrypt($data['password']),
@@ -97,6 +96,10 @@ class RegisterController extends Controller
         else if ($data['user-type'] == 'faculty') {
             $profile = new Faculty();
             $profile->user_id = $user->id;
+            $profile->email = $data['email'];
+            $profile->first_name = $data['first_name'];
+            $profile->last_name = $data['last_name'];
+            $profile->title = $data['suffix'];
             $profile->save();
         }
 

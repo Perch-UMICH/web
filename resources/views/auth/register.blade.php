@@ -12,7 +12,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Register</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                        <form id="register_form" class="form-horizontal" method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
                             <div id="register_page_0">
@@ -43,6 +43,22 @@
                                         @if ($errors->has('last_name'))
                                             <span class="help-block">
                                         <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                {{--title--}}
+                                <div id="titleblock" class="form-group{{ $errors->has('suffix') ? ' has-error' : '' }}">
+                                    <label for="name" class="col-md-4 control-label">Suffix</label>
+
+                                    <div class="col-md-6">
+                                        <input id="suffix" type="text" class="form-control" name="suffix"
+                                               placeholder="Title (e.g. MD, PhD, Graduate Student, etc.)" value="{{ old('suffix') }}">
+
+                                        @if ($errors->has('suffix'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('suffix') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -89,10 +105,10 @@
 
                                     <div class="col-md-6 btn-group" data-toggle="buttons">
                                         <label id="register_student_check" class="btn btn-default active" >
-                                            <input type="radio" class="form-control-static" name="user-type" value="student" checked required> Student
+                                            <input id="student" type="radio" class="form-control-static" name="user-type" value="student" checked required> Student
                                         </label>
                                         <label id="register_prof_check" class="btn btn-default">
-                                            <input type="radio" class="form-control-static" name="user-type" value="faculty"> Lab Faculty
+                                            <input id="prof" type="radio" class="form-control-static" name="user-type" value="faculty"> Lab Faculty
                                         </label>
                                     </div>
                                 </div>
@@ -180,15 +196,16 @@
         $( document ).ready(function() {
             var next = $('#register_next_btn');
             var prev = $('#register_prev_btn');
-            var submit = $('#register_submit_btn');
-
+            var submit_btn = $('#register_submit_btn');
+            var title = $('#titleblock');
 
             for (var i = 1; i < max_page; ++i) {
                 $('#register_page_' + i).hide();
             }
 
-            submit.hide();
+            submit_btn.hide();
             prev.hide();
+            title.hide();
 
             // Next button
             next.click( next_page );
@@ -198,13 +215,25 @@
 
             $('#register_prof_check').click( function () {
                 next.hide();
-                submit.show();
+                submit_btn.show();
+                title.show();
             });
 
             $('#register_student_check').click( function () {
                 next.show();
-                submit.hide();
+                submit_btn.hide();
+                title.hide();
             })
+        });
+
+        // faculty register submit, remove student form element, submit
+        $('#register_submit_btn').click(function(event) {
+            if ($('#prof').prop('checked')) {
+                event.preventDefault();
+                $('#register_page_1').remove();
+                $('#register_page_2').remove();
+                $('#register_form').submit();
+            }
         });
 
         next_page = function () {
