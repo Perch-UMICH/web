@@ -15,7 +15,6 @@ class LabsTableSeeder extends Seeder
         DB::table('labs')->delete();
 
         $lab = new Lab();
-        $lab->PI = 1;
         $lab->name = "Nishii Lab";
         $lab->department = "Chemistry";
         $lab->description = <<<DESC
@@ -32,21 +31,8 @@ Nishii, A. “Title”. Journal, <b>2015</b>, Volume (issue), Pages.";
         $lab->weeklyCommitment = 15;
         $lab->save();
 
-        $profile = \App\Faculty::find('1');
-        $profile->lab_id = 1;
-        $profile->save();
-
-        $profile = \App\Faculty::find('2');
-        $profile->lab_id = 1;
-        $profile->save();
-
-        $profile = \App\Student::where('first_name','=', 'Akshay')->first();
-        $profile->lab_id = 1;
-        $profile->save();
-
         // additonal lab
         $lab = new Lab();
-        $lab->PI = 2;
         $lab->name = "Perch Lab";
         $lab->department = "Biology";
         $lab->description = <<<DESC

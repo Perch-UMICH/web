@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-2">
                 <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture" class="img-responsive hidden-sm hidden-xs">
-                <h3 id="PI" style="text-align: center;">{{$PI->name}}</h3>
+                <h3 id="PI" style="text-align: center;">{{$PI->first_name . ' ' . $PI->last_name}}</h3>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i></span>
                     <input id="location" type="text" class="form-control" name="location" placeholder="Location" value="{{ $lab->location }}">

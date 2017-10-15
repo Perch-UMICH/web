@@ -16,14 +16,12 @@ class CreateFacultyTable extends Migration
         Schema::create('faculties', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->unique()->index();
-            $table->integer('lab_id')->unsigned()->index()->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('title')->nullable();
             $table->string('email');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('lab_id')->references('id')->on('labs');
         });
     }
 

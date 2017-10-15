@@ -16,7 +16,6 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->unique()->index();
-            $table->integer('lab_id')->unsigned()->unique()->index()->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->text('bio')->nullable();
@@ -26,7 +25,6 @@ class CreateStudentsTable extends Migration
             $table->string('linkedin_user')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('lab_id')->references('id')->on('labs');
         });
     }
     /**

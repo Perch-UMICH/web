@@ -7,10 +7,10 @@ class Faculty extends Model {
     /**
      * This function returns lab associated with a row in faculty
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function lab() {
-        return $this->belongsTo(Lab::class);
+    public function labs() {
+        return $this->belongsToMany('App\Lab', 'lab_faculties');
     }
 
     /**

@@ -7,19 +7,19 @@ class Lab extends Model
     /**
      * This function returns faculties that belongs to a lab
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function faculties() {
-        return $this->hasMany('App\Faculty');
+        return $this->belongsToMany('App\Faculty','lab_faculties');
     }
 
     /**
      * This function returns students that belongs to a lab
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function students() {
-        return $this->hasMany('App\Student');
+        return $this->belongsToMany('App\Student', 'lab_students');
     }
 
     /**

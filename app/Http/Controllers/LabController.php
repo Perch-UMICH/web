@@ -61,26 +61,26 @@ class LabController extends Controller
     public function show($id)
     {
         $lab = Lab::find($id);
-        // Lab PI
-        $PI = Faculty::find($lab->PI);
+        // Lab PI (first one)
+        $PI = $lab->faculties()->wherePivot('PI','=',1)->first();
         // Get PI username for profile picture
         $username = User::find($PI->user_id)->username;
 
-        // Find all student and faculty members of this lab
-        $faculty = $lab->faculties;
-        $students = $lab->students;
+        // Find all student and faculty members of this lab, PI first
+        $faculties = $lab->faculties()->orderByDesc('lab_faculties.PI')->get();
+        $students = $lab->students()->get();
 
         // Find faculties' user id for displaying edit button
         $facultyid = array();
-        foreach ($faculty as $faculty_member) {
-            $facultyid[] = $faculty_member->user->id;
+        foreach ($faculties as $faculty) {
+            $facultyid[] = $faculty->user->id;
         }
 
         // Find skills
-        $required = $lab->skills()->where('required', '=',1)->get();
-        $preferred = $lab->skills()->where('required', '=',0)->get();
+        $required = $lab->skills()->wherePivot('required', '=',1)->get();
+        $preferred = $lab->skills()->wherePivot('required', '=',0)->get();
 
-        return view('lab.show')->with('lab', $lab)->with('students', $students)->with('faculty', $faculty)
+        return view('lab.show')->with('lab', $lab)->with('students', $students)->with('faculty', $faculties)
             ->with('facultyid', $facultyid)->with('PI', $PI)->with('username', $username)
             ->with('requiredSkills', $required)->with('prefSkills', $preferred);
     }
@@ -95,7 +95,7 @@ class LabController extends Controller
     {
         $lab = Lab::find($id);
         // Lab PI
-        $PI = Faculty::find($lab->PI);
+        $PI = $lab->faculties()->wherePivot('PI','=',1)->first();
         // Get PI username for profile picture
         $username = User::find($PI->user_id)->username;
 

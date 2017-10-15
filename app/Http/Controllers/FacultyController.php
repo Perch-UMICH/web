@@ -66,11 +66,10 @@ class FacultyController extends Controller
         // Get faculty data by id
         $faculty = Faculty::where('user_id', '=', $user->id)->first();
 
-
         // Get lab data
-        $lab = Lab::where('id', '=', $faculty->lab_id)->first();
+        $labs = $faculty->labs()->get();
 
-        return view('faculty.show')->with('username', $username)->with('faculty', $faculty)->with('lab', $lab);
+        return view('faculty.show')->with('username', $username)->with('faculty', $faculty)->with('labs', $labs);
     }
 
     /**
