@@ -11,7 +11,8 @@ nav {
   /*background-color: #724c82;*/
   background-color: #0277bd;
   /*background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #d1d1d1 50%);*/
-  box-shadow: none;
+  /*box-shadow: none;*/
+  /*border-bottom: 2px solid grey;*/
 }
 
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
@@ -67,7 +68,7 @@ nav .brand-logo {
 
 
 .tab2L {
-  height: 1000px;
+  height: 1100px;
   background-color: rgba(122, 207, 214, 0.6);
 }
 
@@ -88,8 +89,17 @@ nav .brand-logo {
 
 }
 
+.tab5 {
+  /*height: 100vh;*/
+  padding-bottom: 5px;
+  background: rgba(0, 0, 0, 0.5);  /* fallback for old browsers */
+  background-image: -webkit-linear-gradient(left, rgba(41, 182, 246, .7) 0%,rgba(122, 207, 214, .7) 100%);
+
+}
+
 body {
   background-image: url(../images/PERCH_BACKGROUND.svg);
+  /*background-image: url(../assets/trial_clouds_grey.png);*/
 }
 
 #sidenav-overlay {
@@ -184,7 +194,7 @@ body {
 }
 
 .sub-team-header {
-  background-color: rgba(122, 207, 214, 0.6);
+  background-color: rgba(122, 207, 214, .6);
   padding-bottom: 5px;
 }
 
@@ -234,4 +244,9 @@ blockquote {
 
 .submit-container {
   margin-top: 15px;
+}
+
+.advisor-img {
+  padding-left: 10%;
+  padding-right: 10%;
 }
