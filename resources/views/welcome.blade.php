@@ -31,9 +31,14 @@
                     <img class="nav-logo" src="{{ asset('images/LOGO.svg') }}">
                 </ul>
                 </a>
+                <ul class="center">
+                    <span class="nav-option hide-on-small-only">Perch</span>
+                    <!-- <span class="show-">The Team</span> -->
+                </ul>
                 <!-- <ul class="right"><li>Sign Up</li></ul> -->
                 <ul class="side-nav light-blue lighten-4" id="mobile-demo">
                     <li><a href="{{ url('about') }}">The Team</a></li>
+                    <li><a href="{{ url('timeline') }}">Timeline</a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}">Login</a></li>
@@ -41,7 +46,7 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->username }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -161,6 +166,37 @@
         </div>
     </div>
     <!-- END TAB -->
+
+    <div class="tab5 white-text center-align">
+        <div >
+            <div class="header center-align">Advisors</div>
+            <br>
+            <div class=" center-align">
+                <!--   <div class="row">
+                    <div class="col s4"></div>
+                    <div class="col s4">Header</div>
+                    <div class="col s4"></div>
+                  </div> -->
+                <div class="row">
+                    <div class="col s12 m4">
+                        <img class="circle responsive-img advisor-img" src="images/advisors/example.jpg">
+                        <div class="flow-text white-text">Advisor num 1</div>
+                        <div class="flow-text white-text">Microsoft Hiring Manager</div>
+                    </div>
+                    <div class="col s12 m4">
+                        <img class="circle responsive-img advisor-img" src="images/advisors/example.jpg">
+                        <div class="flow-text white-text">Advisor num 1</div>
+                        <div class="flow-text white-text">Microsoft Hiring Manager</div>
+                    </div>
+                    <div class="col s12 m4">
+                        <img class="circle responsive-img advisor-img" src="images/advisors/example.jpg">
+                        <div class="flow-text white-text">Advisor num 1</div>
+                        <div class="flow-text white-text">Microsoft Hiring Manager</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- <div class="tab3"></div> -->
     <div class="sub-team-header-2">
