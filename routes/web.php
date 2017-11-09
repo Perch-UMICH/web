@@ -33,7 +33,7 @@ Route::resource('student', 'StudentController', ['except' => [
 ]]);
 
 Route::resource('lab', 'LabController', ['only' => [
-    'show', 'index', 'edit', 'update'
+    'show', 'index', 'edit', 'update', 'create', 'store'
 ]]);
 
 Route::resource('resume', 'ResumeController', ['only' => [

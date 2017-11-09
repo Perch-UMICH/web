@@ -17,8 +17,8 @@ class LabController extends Controller
      */
     public function __construct() {
         $this->middleware('auth');
-        $this->middleware('checkRole:faculty')->only(['edit', 'update']);
-        $this->middleware('editLabPermission')->only(['edit','update']);
+        $this->middleware('checkRole:faculty')->only(['edit', 'update', 'create', 'store']);
+        $this->middleware('editLabPermission')->only(['edit','update', 'store']);
     }
 
     /**
@@ -38,7 +38,7 @@ class LabController extends Controller
      */
     public function create()
     {
-        //
+        return view('lab.create');
     }
 
     /**
@@ -49,7 +49,31 @@ class LabController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'lab_name' => 'required',
+            'department_name' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'research_areas' => 'required',
+        ]);
+
+        $name = $request['lab_name'];
+        $department = $request['department_name'];
+        $loc = $request['location'];
+        $res_areas = $request['research_areas'];
+        $des = $request['description'];
+
+        $lab = new Lab;
+        $lab->name = $name;
+        $lab->department = $department;
+        $lab->location = $loc;
+        $lab->researchAreas = $res_areas;
+        $lab->description = $des;
+
+        $lab->save();
+
+        // redirect
+        return redirect('lab/' . $lab->id);
     }
 
     /**
