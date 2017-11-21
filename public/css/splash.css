@@ -241,6 +241,11 @@ blockquote {
   font-size: 30px;
   border: 2px solid white;
 }
+.awkward-desktop {
+  font-size: 30px;
+  border: 2px solid white;
+  max-width: 350px;
+}
 
 .submit-container {
   margin-top: 15px;
@@ -249,4 +254,29 @@ blockquote {
 .advisor-img {
   padding-left: 10%;
   padding-right: 10%;
+}
+
+#join-btn {
+  width: 275px;
+  letter-spacing: 1.5px;
+  border: 2px solid white;
+  color: white;
+  text-transform: lowercase;
+}
+
+#join-btn:hover {
+  background-color: #0277bd;
+}
+
+.user-type-btn {
+  width: 275px;
+  letter-spacing: 1.5px;
+  border: 2px solid white;
+  color: white;
+  text-transform: lowercase;
+  margin-bottom: 50px;
+}
+
+.user-type-btn:hover {
+  background-color: #0277bd;
 }

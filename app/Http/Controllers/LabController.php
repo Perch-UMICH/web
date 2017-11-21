@@ -28,7 +28,8 @@ class LabController extends Controller
      */
     public function index()
     {
-        //
+        $labs = Lab::all();
+        return view('lab.index')->with('labs', $labs);
     }
 
     /**

@@ -39,7 +39,7 @@
                 <!-- <ul class="right"><li>Sign Up</li></ul> -->
                 <ul class="side-nav light-blue lighten-4" id="mobile-demo">
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('about') }}">About</a></li>
+                    <li><a href="{{ url('about') }}">The Team</a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}">Login</a></li>

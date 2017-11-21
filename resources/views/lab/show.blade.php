@@ -13,6 +13,7 @@
             <h1>{{ $lab->name }}
                 <!-- Check if auth user is a faculty of the lab -->
                 @php ($edit = false)
+                @php ($labStudent = false)
                 @foreach ($facultyid as $id)
                     @if ($id == auth()->id())
                         @php ($edit = true)
@@ -20,6 +21,17 @@
                 @endforeach
                 @if ($edit)
                     <a href={{ url('/lab/' . $lab->id . '/edit') }} type="button" class="btn btn-sm btn-primary pull-right">Update lab page</a>
+                @elseif (Auth::user()->hasRole('student'))
+                    @foreach ($students as $student)
+                        @if ($student->user_id == auth()->id())
+                            @php ($labStudent = true)
+                        @endif
+                    @endforeach
+                    @if ($labStudent)
+                        <a type="button" class="btn btn-sm btn-primary pull-right" disabled="disabled" data-toggle="tooltip" title="You're already part of this lab.">Apply</a>
+                    @else
+                        <a href={{ url('#') }} type="button" class="btn btn-sm btn-primary pull-right">Apply</a>
+                    @endif
                 @endif
             </h1>
             <h3>{{ $lab->department }}</h3>

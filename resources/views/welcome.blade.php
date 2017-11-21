@@ -83,12 +83,24 @@
         <div class="container center-align">
             <img class="logo" src="{{ asset('images/PERCH_MASCOT.svg') }}">
             <h1 class="white-text perch">Perch</h1>
-            <span class="catchphrase hide-on-small-only"><span class="awkward-top">De-awkwardizing</span><br><span class="awkward-bottom">Research</span></span>
-            <div class="awkward-mobile container hide-on-med-and-up white-text">De-awkwardizing<div id="research-mobile" class="white">Research</div></div>
+
+            <!-- <span class="catchphrase hide-on-small-only"><span class="awkward-top">De-awkwardizing</span><br><span class="awkward-bottom">Research</span></span> -->
+            <div class="awkward-desktop container hide-on-small-only white-text">De-Awkwardizing<div id="research-mobile" class="white"><span class="element"></span></div></div>
+            <div class="awkward-mobile container hide-on-med-and-up white-text">De-Awkwardizing<div id="research-mobile" class="white"><span class="element-mobile"></span></div></div>
+            <br><a href="#form" id="join-btn" class="waves-effect btn-flat btn-large">join our email list</a>
         </div>
     </div>
 
-    <div class="tab4 white-text valign-wrapper">
+    <div id="user-prompt" class="tab4 white-text valign-wrapper">
+        <div class="row center-align">
+            <div class="header center-align">Who are you?</div>
+            <br><br><br>
+            <div id="student-btn" class="col s12 m6"><a href="javascript:void(0)" class="user-type-btn waves-effect btn-flat btn-large">Student</a></div>
+            <div id="prof-btn" class="col s12 m6"><a href="javascript:void(0)" class="user-type-btn waves-effect btn-flat btn-large">Professor</a></div>
+        </div>
+    </div>
+
+    <div id="student-section" class="tab4 white-text valign-wrapper hide">
         <div>
             <div class="header center-align">Finding a lab is Awkward</div>
             <div class="container">
@@ -99,7 +111,6 @@
                 </ul>
             </div>
         </div>
-
     </div>
 
     <!-- TAB -->
@@ -179,18 +190,18 @@
                   </div> -->
                 <div class="row">
                     <div class="col s12 m4">
-                        <img class="circle responsive-img advisor-img" src="images/advisors/example.jpg">
+                        <img class="circle responsive-img advisor-img" src="{{ asset('images/advisors/Ormond MacDougald2.jpg') }}">
+                        <div class="flow-text white-text">Oromond MacDougald</div>
+                        <div class=" white-text">Professor of Molecular & Integrative Physiology</div>
+                    </div>
+                    <div class="col s12 m4">
+                        <img class="circle responsive-img advisor-img" src="{{ asset('images/advisors/example.jpg') }}">
                         <div class="flow-text white-text">Advisor num 1</div>
                         <div class="flow-text white-text">Microsoft Hiring Manager</div>
                     </div>
                     <div class="col s12 m4">
-                        <img class="circle responsive-img advisor-img" src="images/advisors/example.jpg">
-                        <div class="flow-text white-text">Advisor num 1</div>
-                        <div class="flow-text white-text">Microsoft Hiring Manager</div>
-                    </div>
-                    <div class="col s12 m4">
-                        <img class="circle responsive-img advisor-img" src="images/advisors/example.jpg">
-                        <div class="flow-text white-text">Advisor num 1</div>
+                        <img class="circle responsive-img advisor-img" src="{{ asset('images/advisors/example.jpg') }}">
+                        <div class="flow-text white-text">Advisor num 2</div>
                         <div class="flow-text white-text">Microsoft Hiring Manager</div>
                     </div>
                 </div>
@@ -201,7 +212,7 @@
     <!-- <div class="tab3"></div> -->
     <div class="sub-team-header-2">
         <!-- Form Section -->
-        <div class="form-container">
+        <div id="form" class="form-container">
             <div class="input-form container grey lighten-5 z-depth-3">
                 <div class="container">
                     <div class="form-header center-align grey-text text-darken-3">Interested?</div>
@@ -242,6 +253,7 @@
     </div>
 
     <script src="{{ asset('js/materialize.min.js') }}"></script>
+    <script src="{{ asset('js/typed.js') }}"></script>
     <script src="{{ asset('js/init.js') }}"></script>
 </body>
 
