@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ asset('css/kissui.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/scrollanim.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/splash.css') }}" rel="stylesheet">
 
@@ -81,18 +83,18 @@
     <!-- NAV BAR END -->
     <div class="tab3 valign-wrapper">
         <div class="container center-align">
-            <img class="logo" src="{{ asset('images/PERCH_MASCOT.svg') }}">
+            <img class="logo" src="{{ asset('images/PERCH_MASCOT.svg') }}" data-tilt>
             <h1 class="white-text perch">Perch</h1>
 
             <!-- <span class="catchphrase hide-on-small-only"><span class="awkward-top">De-awkwardizing</span><br><span class="awkward-bottom">Research</span></span> -->
             <div class="awkward-desktop container hide-on-small-only white-text">De-Awkwardizing<div id="research-mobile" class="white"><span class="element"></span></div></div>
             <div class="awkward-mobile container hide-on-med-and-up white-text">De-Awkwardizing<div id="research-mobile" class="white"><span class="element-mobile"></span></div></div>
-            <br><a href="#form" id="join-btn" class="waves-effect btn-flat btn-large">join our email list</a>
+            <br><a href="#form" id="join-btn" class="waves-effect btn-flat btn-large js-trigger" data-mt-duration="300">join our email list</a>
         </div>
     </div>
 
     <div id="user-prompt" class="tab4 white-text valign-wrapper">
-        <div class="row center-align">
+        <div class="row center-align" data-kui-anim="fadeIn">
             <div class="header center-align">Who are you?</div>
             <br><br><br>
             <div id="student-btn" class="col s12 m6"><a href="javascript:void(0)" class="user-type-btn waves-effect btn-flat btn-large">Student</a></div>
@@ -100,21 +102,38 @@
         </div>
     </div>
 
-    <div id="student-section" class="tab4 white-text valign-wrapper hide">
+    <div id="student-section" class="tab4 white-text valign-wrapper hide flow-text">
         <div>
-            <div class="header center-align">Finding a lab is Awkward</div>
+            <div class="header center-align hide-on-small-only">Finding a lab is Awkward</div>
+            <div class="header-small center-align show-on-small hide-on-med-and-up">Finding a lab is Awkward</div>
             <div class="container">
                 <ul>
                     <blockquote class="flow-text">Most research labs on campus aren’t organized to accommodate for undergrads</blockquote>
                     <blockquote class="flow-text">Information about labs is often hard to find, and it’s hard to tell if they’re looking for assistants </blockquote>
                     <blockquote class="flow-text">Contacting research faculty take a lot of work, since there are few opportunities for professors to connect with students on their research</blockquote>
+                    <blockquote id="block-solution" class="flow-text white">We streamline the way students and university labs communicate, so that students can find the best fit for their academic passion.</blockquote>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="professor-section" class="tab4 white-text valign-wrapper hide flow-text">
+        <div>
+            <div class="header center-align hide-on-small-only">Finding an assistant is awkward</div>
+            <div class="header-small center-align show-on-small hide-on-med-and-up">Finding assistant is awkward</div>
+            <div class="container flow-text">
+                <ul>
+                    <blockquote>Finding qualified undergrads is tough. Finding the best undergrad for your lab is even tougher</blockquote>
+                    <blockquote >But training undergrads takes time and resources away from your projects</blockquote>
+                    <blockquote ">So some projects chug slowly or get put on the backburner</blockquote>
+                    <blockquote id="block-solution" class=" white">We streamline the way students and university labs communicate, so that professors can find the best undergrads to fuel their projects.</blockquote>
                 </ul>
             </div>
         </div>
     </div>
 
     <!-- TAB -->
-    <div class="tab2 hide-on-med-and-down valign-wrapper">
+    <div class="tab2 hide-on-med-and-down valign-wrapper hide">
         <div class="container">
             <br>
             <h1 class="white-text center-align">Why Perch?</h1>
@@ -146,7 +165,7 @@
     </div>
     <!-- END TAB -->
     <!-- TAB -->
-    <div class="tab2L hide-on-large-only valign-wrapper">
+    <div class="tab2L hide-on-large-only valign-wrapper hide">
         <div class="container">
             <br>
             <h1 class="white-text center">Why Perch?</h1>
@@ -178,7 +197,7 @@
     </div>
     <!-- END TAB -->
 
-    <div class="tab5 white-text center-align">
+    <div class="tab5 white-text center-align hide">
         <div >
             <div class="header center-align">Advisors</div>
             <br>
@@ -192,7 +211,7 @@
                     <div class="col s12 m4">
                         <img class="circle responsive-img advisor-img" src="{{ asset('images/advisors/Ormond MacDougald2.jpg') }}">
                         <div class="flow-text white-text">Oromond MacDougald</div>
-                        <div class=" white-text">Professor of Molecular & Integrative Physiology</div>
+                        <div class=" white-text">Professor of Molecular &amp; Integrative Physiology</div>
                     </div>
                     <div class="col s12 m4">
                         <img class="circle responsive-img advisor-img" src="{{ asset('images/advisors/example.jpg') }}">
@@ -212,7 +231,7 @@
     <!-- <div class="tab3"></div> -->
     <div class="sub-team-header-2">
         <!-- Form Section -->
-        <div id="form" class="form-container">
+        <div id="form" class="form-container sub-team-header-2 center-align valign-wrapper">
             <div class="input-form container grey lighten-5 z-depth-3">
                 <div class="container">
                     <div class="form-header center-align grey-text text-darken-3">Interested?</div>
@@ -253,6 +272,9 @@
     </div>
 
     <script src="{{ asset('js/materialize.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <script src="{{ asset('js/moveTo.js') }}"></script>
+    <script src='{{ asset('js/scrollanim.js') }}'></script>
     <script src="{{ asset('js/typed.js') }}"></script>
     <script src="{{ asset('js/init.js') }}"></script>
 </body>

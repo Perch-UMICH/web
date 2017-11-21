@@ -25,8 +25,12 @@
   color: grey;
 }
 
+h2 {
+  font-size: 30px;
+}
+
 #countdown {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
 
 
@@ -213,10 +217,6 @@ a:hover, a:active, a:focus {
   left: 20px;
 }
 
-h2 {
-  font-size: 30px;
-}
-
 blockquote {
   margin-top: 30px;
   color: #757575;
@@ -265,6 +265,7 @@ blockquote {
 
 #countdown {
   font-size: 60px;
+  /*margin-bottom: 0px;*/
 }
 
 /*NAV*/
