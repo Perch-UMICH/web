@@ -172,31 +172,35 @@ a:hover, a:active, a:focus {
   margin-left: 20px;
 }
 
+.timeline-item:nth-child(1) .timeline-img-header {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("http://med.umich.edu/ott/mm/images/block-m-feed.jpg") center center no-repeat;
+  background-size: cover;
+}
 .timeline-item:nth-child(2) .timeline-img-header {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("https://az616578.vo.msecnd.net/files/2016/06/10/636011804533596877279417241_o-SUCCESS-facebook-3.jpg") center center no-repeat;
   background-size: cover;
 }
-.timeline-item:nth-child(5) .timeline-img-header {
+.timeline-item:nth-child(3) .timeline-img-header {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("https://tctechcrunch2011.files.wordpress.com/2015/04/codecode.jpg?w=738") center center no-repeat;
   background-size: cover;
 }
-.timeline-item:nth-child(6) .timeline-img-header {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("https://beyondphilosophy.com/wp-content/uploads/2016/11/Should-the-Goal-Be-Higher-Engagement-or-Higher-Experience-Value-Michael-Lowenstein-Feature.gif") center center no-repeat;
-  background-size: cover;
-}
-.timeline-item:nth-child(8) .timeline-img-header {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("https://hd.unsplash.com/photo-1466840787022-48e0ec048c8a") center center no-repeat;
-  background-size: cover;
-}
-.timeline-item:nth-child(10) .timeline-img-header {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("https://hd.unsplash.com/photo-1447639703758-f525f36456bf") center center no-repeat;
-  background-size: cover;
-}
-.timeline-item:nth-child(11) .timeline-img-header {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("https://hd.unsplash.com/photo-1469429978400-082eec725ad5") center center no-repeat;
+.timeline-item:nth-child(4) .timeline-img-header {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("http://perch.us-east-1.elasticbeanstalk.com/images/PERCH_MASCOT.svg") top center no-repeat;
   background-size: cover;
 }
 
+.timeline-item:nth-child(5) .timeline-img-header {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("https://c.s-microsoft.com/en-us/CMSImages/page-sharing-thumbnail.jpg?version=ad58d6d8-0f5a-b7a8-ea50-939410935c7c") center center no-repeat;
+  background-size: cover;
+}
+.timeline-item:nth-child(7) .timeline-img-header {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("http://static1.squarespace.com/static/574341bb8a65e27900eb5610/t/58be0d5ad1758e41e24f2917/1488850269716/optiMize_LightBlue_Globe.png?format=1000w") center center no-repeat;
+  background-size: cover;
+}
+.timeline-item:nth-child(8) .timeline-img-header {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("http://med.umich.edu/ott/mm/images/block-m-feed.jpg") center center no-repeat;
+  background-size: cover;
+}
 .timeline-img-header {
   height: 200px;
   position: relative;
@@ -209,6 +213,10 @@ a:hover, a:active, a:focus {
   left: 20px;
 }
 
+h2 {
+  font-size: 30px;
+}
+
 blockquote {
   margin-top: 30px;
   color: #757575;
@@ -217,7 +225,8 @@ blockquote {
 }
 
 .date {
-  background-color: rgba(122, 207, 214, 1);
+  /*background-color: rgba(122, 207, 214, 1);*/
+  background-color: #0277bd;
   display: inline-block;
   color: #FFFFFF;
   padding: 10px;
