@@ -16,7 +16,7 @@ $(document).ready(function(){
 var options = {
     strings: ["Research", "Finding a lab", "Finding lab assistants", "Learning lab skills", "Making an impact"],
     typeSpeed: 40
-};
+}
 
 var typed = new Typed(".element", options);
 var typed = new Typed(".element-mobile", options);
@@ -35,6 +35,30 @@ $("#prof-btn").each(function ()
     $(this).click(function () {
 
         $('#user-prompt').addClass("hide");
-        $('#student-section').removeClass("hide");
+        $('#professor-section').removeClass("hide");
     });
+});
+
+$('.logo').tilt({
+    // axis: 'x'
+})
+
+document.addEventListener('DOMContentLoaded', function(){
+    const easeFunctions = {
+        easeInQuad: function (t, b, c, d) {
+            t /= d;
+            return c * t * t + b;
+        },
+        easeOutQuad: function (t, b, c, d) {
+            t /= d;
+            return -c * t* (t - 2) + b;
+        }
+    }
+    const moveTo = new MoveTo({
+        ease: 'easeInQuad'
+    }, easeFunctions);
+    const triggers = document.getElementsByClassName('js-trigger');
+    for (var i = 0; i < triggers.length; i++) {
+        moveTo.registerTrigger(triggers[i]);
+    }
 });

@@ -12,8 +12,8 @@
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
     <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet prefetch'>
     <link href="{{ asset('css/timeline.css') }}" rel="stylesheet">
 
     {{--Jquery--}}
