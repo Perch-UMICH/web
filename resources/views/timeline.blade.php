@@ -12,8 +12,8 @@
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
     <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet prefetch'>
     <link href="{{ asset('css/timeline.css') }}" rel="stylesheet">
 
     {{--Jquery--}}
@@ -39,7 +39,7 @@
                 <!-- <ul class="right"><li>Sign Up</li></ul> -->
                 <ul class="side-nav light-blue lighten-4" id="mobile-demo">
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('about') }}">About</a></li>
+                    <li><a href="{{ url('about') }}">The Team</a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}">Login</a></li>
@@ -93,10 +93,12 @@
             <div class="timeline-item">
                 <div class="timeline-img"></div>
 
-                <div class="timeline-content js--fadeInLeft">
-                    <h2>Title</h2>
-                    <div class="date">1 MAY 2016</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
+                <div class="timeline-content timeline-card js--fadeInLeft">
+                    <div class="timeline-img-header">
+                        <h2>Jo Angela Oehrli</h2>
+                    </div>
+                    <div class="date">19 NOV 2017</div>
+                    <p>Jo Angela Oehrli, published UM librarian, joins the team as a primary advisor<br><br></p>
                     <!-- <a class="bnt-more time-a" href="javascript:void(0)">More</a> -->
                 </div>
             </div>
@@ -107,10 +109,10 @@
 
                 <div class="timeline-content timeline-card js--fadeInRight">
                     <div class="timeline-img-header">
-                        <h2>Optimize Fellowship</h2>
+                        <h2>U of M Library Minigrant</h2>
                     </div>
-                    <div class="date">25 MAY 2016</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
+                    <div class="date">27 OCT 2017</div>
+                    <p>Perch wins the University of Michigan library Student Mini-Grant Award<br><br></p>
                     <!-- <a class="bnt-more time-a" href="javascript:void(0)">More</a> -->
                 </div>
 
@@ -119,22 +121,10 @@
             <div class="timeline-item">
 
                 <div class="timeline-img"></div>
-
                 <div class="timeline-content js--fadeInLeft">
-                    <div class="date">3 JUN 2016</div>
-                    <h2>Quote</h2>
-                    <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta explicabo debitis omnis dolor iste fugit totam quasi inventore!</blockquote>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-
-                <div class="timeline-img"></div>
-
-                <div class="timeline-content js--fadeInRight">
-                    <h2>Title</h2>
-                    <div class="date">22 JUN 2016</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
+                    <div class="date">24 SEP 2017</div>
+                    <h2>Slash Page Deployed</h2>
+                    <p>Splash page goes online, including basic platform functionality<br></p>
                     <!-- <a class="bnt-more time-a" href="javascript:void(0)">More</a> -->
                 </div>
             </div>
@@ -145,10 +135,10 @@
 
                 <div class="timeline-content timeline-card js--fadeInLeft">
                     <div class="timeline-img-header">
-                        <h2>Card Title</h2>
+                        <h2>Mascot Designed</h2>
                     </div>
-                    <div class="date">10 JULY 2016</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
+                    <div class="date">29 OCT 2017</div>
+                    <p>Perch mascot, Rodriguez, developed by graphic design team</p>
                     <!-- <a class="bnt-more time-a" href="javascript:void(0)">More</a> -->
                 </div>
             </div>
@@ -157,37 +147,12 @@
 
                 <div class="timeline-img"></div>
 
-                <div class="timeline-content timeline-card js--fadeInRight">
+                <div class="timeline-content timeline-card js--fadeInLeft">
                     <div class="timeline-img-header">
-                        <h2>Card Title</h2>
+                        <h2>Jim Bennett</h2>
                     </div>
-                    <div class="date">30 JULY 2016</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
-                    <!-- <a class="bnt-more time-a" href="javascript:void(0)">More</a> -->
-                </div>
-            </div>
-
-            <div class="timeline-item">
-
-                <div class="timeline-img"></div>
-
-                <div class="timeline-content js--fadeInLeft">
-                    <div class="date">5 AUG 2016</div>
-                    <h2>Quote</h2>
-                    <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta explicabo debitis omnis dolor iste fugit totam quasi inventore!</blockquote>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-
-                <div class="timeline-img"></div>
-
-                <div class="timeline-content timeline-card js--fadeInRight">
-                    <div class="timeline-img-header">
-                        <h2>Card Title</h2>
-                    </div>
-                    <div class="date">19 AUG 2016</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
+                    <div class="date">23 AUG 2017</div>
+                    <p>Jim Bennett, Microsoft Product lead, joins the team at a primary advisor<br><br></p>
                     <!-- <a class="bnt-more time-a" href="javascript:void(0)">More</a> -->
                 </div>
             </div>
@@ -198,9 +163,38 @@
 
                 <div class="timeline-content js--fadeInLeft">
                     <div class="date">1 SEP 2016</div>
-                    <h2>Title</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
-                    <!-- <a class="bnt-more time-a" href="javascript:void(0)">More</a> -->
+                    <h2>Wireframe</h2>
+                    <p>Perch wireframe prototype showcased at Optimize prototype night</p>
+                    <a class="bnt-more time-a" href="https://xd.adobe.com/view/7b2ab11b-723d-4340-af58-ae50727bb6ad/">WIREFRAME</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-img"></div>
+
+                <div class="timeline-content timeline-card js--fadeInLeft">
+                    <div class="timeline-img-header">
+                        <h2>Optimize Challenge</h2>
+                    </div>
+                    <div class="date">24 FEB 2017</div>
+                    <p>Perch receives Optimize Social Innovation Challenge grant, with our own Akira and Hyejin becoming Optimize fellows</p>
+                    <a class="bnt-more time-a" href="https://www.optimizemi.org/">OPTIMIZE</a>
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-img"></div>
+
+                <div class="timeline-content timeline-card js--fadeInRight">
+                    <div class="timeline-img-header">
+                        <h2>John Wolfe</h2>
+                    </div>
+                    <div class="date">19 AUG 2016</div>
+                    <p>Professor John Wolfe, Arthur F. Thurnau Professor of Chemistry, joins the team as a primary advisor</p>
+                    <a class="bnt-more time-a" href="http://www.umich.edu/~wolfelab/wolfe.html">JOHN WOLFE</a><br><br>
                 </div>
             </div>
 

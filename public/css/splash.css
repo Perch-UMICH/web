@@ -169,6 +169,11 @@ body {
 .header {
   font-size: 50px;
 }
+.header-small {
+  font-size: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
 .perch {
   margin-top: 0px;
@@ -201,6 +206,11 @@ body {
 .sub-team-header-2 {
   background-color: rgba(41, 182, 246, 0.6);
   padding-bottom: 5px;
+  height: 100vh;
+}
+
+.sub-team-header-2 div {
+  /*display: inline-block;*/
 }
 
 .sub-team-header h3, .sub-team-header-2 h3{
@@ -241,12 +251,55 @@ blockquote {
   font-size: 30px;
   border: 2px solid white;
 }
+.awkward-desktop {
+  font-size: 30px;
+  border: 2px solid white;
+  max-width: 350px;
+}
 
 .submit-container {
   margin-top: 15px;
 }
 
+.submit-btn {
+  background-color: #0277bd;
+  /*border: 2px solid #0277bd;*/
+  box-shadow: none;
+}
+
+.submit-btn:hover {
+  background-color: #4fc3f7 ;
+  /*border: 2px solid #0277bd;*/
+  /*color: #0277bd;*/
+  box-shadow: none;
+}
+
 .advisor-img {
   padding-left: 10%;
   padding-right: 10%;
+}
+
+#join-btn {
+  width: 275px;
+  letter-spacing: 1.5px;
+  border: 2px solid white;
+  color: white;
+  text-transform: lowercase;
+}
+
+#join-btn:hover {
+  background-color: #0277bd;
+}
+
+.user-type-btn {
+  width: 275px;
+  letter-spacing: 1.5px;
+  border: 2px solid white;
+  color: white;
+  text-transform: lowercase;
+  margin-bottom: 50px;
+}
+
+.user-type-btn:hover {
+  background-color: #0277bd;
 }
