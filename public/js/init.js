@@ -14,8 +14,8 @@ $(document).ready(function(){
 // import Typed from 'typed.js';
 
 var options = {
-    strings: ["Research", "Finding a lab", "Finding lab assistants", "Learning lab skills", "Making an impact"],
-    typeSpeed: 40
+    strings: ["Research", "Finding a lab", "Finding lab assistants", "Learning lab skills", "Making an impact", "Research"],
+    typeSpeed: 65
 }
 
 var typed = new Typed(".element", options);
