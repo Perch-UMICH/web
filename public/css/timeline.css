@@ -39,10 +39,10 @@ html, body {
 }
 
 body {
-  font-family: 'Roboto';
-  font-size: 17px;
-  font-weight: 400;
-  background-color: #80deea ;
+  background: rgba(0, 0, 0, 0.5);  /* fallback for old browsers */
+  background-image: -webkit-linear-gradient(left, rgba(70, 197, 250, 1) 0%,rgba(122, 207, 230, 1) 100%);
+
+  font-family: 'Lato', sans-serif;
   /*background-color: #01579b;*/
 }
 
@@ -54,8 +54,9 @@ h1 {
 }
 
 header {
-  background: rgba(0, 0, 0, 0.5);  /* fallback for old browsers */
-  background-image: -webkit-linear-gradient(left, rgba(70, 197, 250, 1) 0%,rgba(122, 207, 230, 1) 100%);
+  background-image: url(../images/sickBackground.png);
+  /*background-position: center top;*/
+  background-size: 100% auto;
   color: #FFFFFF;
   padding: 75px 0;
   /*height: 80vh;*/
@@ -282,6 +283,14 @@ nav {
   /*border-bottom: 2px solid grey;*/
 }
 
+nav a {
+  font-size: 15px !important;
+}
+
+nav ul.left span.nav-option{
+  font-size: 50px !important;
+}
+
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   height: 90px;
   line-height: 90px;
@@ -298,7 +307,7 @@ nav .button-collapse i {
 }
 
 nav .brand-logo {
-  font-size: 1.6rem;
+  /*font-size: 1.6rem; */
 }
 
 /*Arrow*/
@@ -360,6 +369,9 @@ nav {
   line-height: 90px;
   /*background-color: #724c82;*/
   background-color: #0277bd;
+  /*box-shadow: none;*/
+  /*background-color: transparent;*/
+
   /*background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #d1d1d1 50%);*/
   /*box-shadow: none;*/
   /*border-bottom: 2px solid grey;*/
@@ -391,6 +403,36 @@ nav .brand-logo {
   }
 }
 
+.dropdown {
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #0277bd;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.nav-item {
+  letter-spacing: 3px;
+}
+
+.contact-nav {
+  background-color: rgb(41, 182, 246);
+}
+
+.contact-nav:hover {
+  background-color: white;
+  color: rgb(41, 182, 246);
+}
+
 #sidenav-overlay {
   z-index: 996;
 }
@@ -404,6 +446,3 @@ nav .brand-logo {
   padding-right: 10px;
 }
 
-.nav-option {
-  font-size: 50px;
-}
