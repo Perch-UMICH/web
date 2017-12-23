@@ -30,4 +30,22 @@ class Lab extends Model
     public function skills() {
         return $this->belongsToMany('App\Skill', 'lab_skills');
     }
+
+    /**
+     * Get all tags related to this lab
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags() {
+        return $this->belongsToMany('App\Tag', 'lab_tags');
+    }
+
+    /**
+     * Get all positions related to this lab
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function positions() {
+        return $this->belongsToMany('App\Position', 'lab_positions');
+    }
 }

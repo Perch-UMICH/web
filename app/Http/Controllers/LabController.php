@@ -105,9 +105,16 @@ class LabController extends Controller
         $required = $lab->skills()->wherePivot('required', '=',1)->get();
         $preferred = $lab->skills()->wherePivot('required', '=',0)->get();
 
+        // Find tags
+        $tags = $lab->tags()->wherePivot('lab_id', '=', $id)->get();
+
+        // Find positions
+        $positions = $lab->positions()->wherePivot('lab_id','=', $id)->get();
+
         return view('lab.show')->with('lab', $lab)->with('students', $students)->with('faculty', $faculties)
             ->with('facultyid', $facultyid)->with('PI', $PI)->with('username', $username)
-            ->with('requiredSkills', $required)->with('prefSkills', $preferred);
+            ->with('requiredSkills', $required)->with('prefSkills', $preferred)
+            ->with('labTags', $tags)->with('labPositions', $positions);
     }
 
     /**

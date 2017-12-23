@@ -36,13 +36,19 @@
             </h1>
             <h3>{{ $lab->department }}</h3>
             <hr/>
+
+            {{--DESCRIPTION--}}
             <h3>Research</h3>
             <!-- HTML enabled -->
             <p>{!! nl2br($lab->description) !!}</p>
             <hr />
+
+            {{--PUBLICATIONS--}}
             <h3>Publications</h3>
             <p>{!! nl2br($lab->publications) !!}</p>
             <hr />
+
+            {{--QUALIFICATIONS--}}
             <h3>Qualifications</h3>
             @if (count($requiredSkills) != 0 or count($prefSkills) != 0 or $lab->gpa !== null or $lab->weeklyCommitment !== null)
                 @if (count($requiredSkills) != 0 or $lab->gpa !== null or $lab->weeklyCommitment !== null)
@@ -84,6 +90,24 @@
             @else
                 <p>No qualifications listed.</p>
             @endif
+
+            {{--POSITIONS--}}
+            <hr />
+            <h3>Open Positions</h3>
+            @if (count($labPositions) != 0)
+                @foreach ($labPositions as $pos)
+                    <h4>{{ $pos->name }}</h4>
+                    @if ( $pos->open )
+                        <p>This position is currently open</p>
+                    @else
+                        <p>This position has been recently filled</p>
+                    @endif
+
+                    <p>{{ $pos->description }}</p>
+                @endforeach
+            @else
+                <p>No open positions at this time.</p>
+            @endif
         </div>
         <div class="col-md-2">
             <img src="{{ url('/photo/' . $username) }}" alt="Profile Picture" class="img-responsive hidden-sm hidden-xs">
@@ -102,7 +126,10 @@
             </p>
             <hr/>
             <h3>Research Area(s)</h3>
-                <p>{!! nl2br($lab->researchAreas) !!}</p>
+                {{--<p>{!! nl2br($lab->researchAreas) !!}</p>--}}
+                @foreach ($labTags as $tag)
+                    <p>{{ $tag->tag }}</p>
+                @endforeach
             <hr/>
             <h3>
                 @if (count($faculty) == 1)

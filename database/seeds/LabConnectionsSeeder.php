@@ -4,6 +4,8 @@ use App\Lab_Faculty;
 use App\Lab_Student;
 use App\Lab_Tag;
 use App\Tag;
+use App\Lab_Position;
+use App\Position;
 use Illuminate\Database\Seeder;
 
 class LabConnectionsSeeder extends Seeder
@@ -18,6 +20,7 @@ class LabConnectionsSeeder extends Seeder
         $this->labFacultiesSeeder();
         $this->labStudentSeeder();
         $this->labTagsTableSeeder();
+        $this->labPositionsTableSeeder();
     }
 
     /**
@@ -79,6 +82,7 @@ class LabConnectionsSeeder extends Seeder
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 1;
         $lab_tag->tag_id = $tag->id;
+        $lab_tag->save();
 
         //
 
@@ -89,6 +93,7 @@ class LabConnectionsSeeder extends Seeder
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 1;
         $lab_tag->tag_id = $tag->id;
+        $lab_tag->save();
 
         //
 
@@ -99,6 +104,7 @@ class LabConnectionsSeeder extends Seeder
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 1;
         $lab_tag->tag_id = $tag->id;
+        $lab_tag->save();
 
         //
 
@@ -109,6 +115,7 @@ class LabConnectionsSeeder extends Seeder
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 1;
         $lab_tag->tag_id = $tag->id;
+        $lab_tag->save();
 
         //
 
@@ -119,6 +126,7 @@ class LabConnectionsSeeder extends Seeder
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 2;
         $lab_tag->tag_id = $tag->id;
+        $lab_tag->save();
 
         //
 
@@ -129,6 +137,7 @@ class LabConnectionsSeeder extends Seeder
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 2;
         $lab_tag->tag_id = $tag->id;
+        $lab_tag->save();
 
         //
 
@@ -139,6 +148,7 @@ class LabConnectionsSeeder extends Seeder
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 2;
         $lab_tag->tag_id = $tag->id;
+        $lab_tag->save();
 
         //
 
@@ -149,5 +159,29 @@ class LabConnectionsSeeder extends Seeder
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 2;
         $lab_tag->tag_id = $tag->id;
+        $lab_tag->save();
+
+    }
+
+    /**
+     * Seeds lab_positions table
+     */
+    public function labPositionsTableSeeder() {
+        DB::table('lab_positions')->delete();
+
+        //
+
+        $position = new Position();
+        $position->name = "Undergraduate Assistant: Ion Channel Physiology";
+        $position->description = "Looking for two undergraduate assistant to help with research on calcium ion channels.";
+        $position->weeklyCommitment = "10 - 12 hours/week";
+        $position->open = true;
+        $position->numSlots = 2;
+        $position->save();
+
+        $lab_position = new Lab_Position();
+        $lab_position->lab_id = 1;
+        $lab_position->position_id = $position->id;
+        $lab_position->save();
     }
 }
