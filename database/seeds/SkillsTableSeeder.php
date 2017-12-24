@@ -10,6 +10,7 @@ use Illuminate\Database\Seeder;
 class SkillsTableSeeder extends Seeder{
     public function run() {
         DB::table('skills')->delete();
+
         DB::table('skills')->insert([
             'name' => 'Reading comprehension',
             'description' => 'Reading comprehension of research paper'
@@ -77,33 +78,5 @@ class SkillsTableSeeder extends Seeder{
             'name' => 'Crystallization',
         ]);
 
-        // student_skills
-        DB::table('student_skills')->delete();
-        DB::table('student_skills')->insert([
-            'user_id' => 1,
-            'skill_id' => 1
-        ]);
-        DB::table('student_skills')->insert([
-            'user_id' => 1,
-            'skill_id' => 2
-        ]);
-        DB::table('student_skills')->insert([
-            'user_id' => 1,
-            'skill_id' => 3
-        ]);
-
-        // test user student_skills
-        DB::table('student_skills')->insert([
-            'user_id' => 4,
-            'skill_id' => 1
-        ]);
-        DB::table('student_skills')->insert([
-            'user_id' => 4,
-            'skill_id' => 2
-        ]);
-        DB::table('student_skills')->insert([
-            'user_id' => 4,
-            'skill_id' => 3
-        ]);
     }
 }

@@ -22,4 +22,22 @@ class Student extends Model {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get all skills this student has
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function skills() {
+        return $this->belongsToMany('App\Skill', 'student_skills');
+    }
+
+    /**
+     * Get all tags (interests) this stduents has
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function interests() {
+        return $this->belongsToMany('App\Tag', 'student_tags');
+    }
+
 }

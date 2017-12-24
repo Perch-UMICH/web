@@ -68,6 +68,10 @@ Route::resource('studentskills', 'StudentSkillController', ['only' => [
     'show', 'edit', 'update'
 ]]);
 
+Route::resource('studenttags', 'StudentTagsController', ['only' => [
+    'show', 'edit', 'update'
+]]);
+
 Route::resource('interested', 'NewsletterController', ['only' => [
     'index', 'store'
 ]]);

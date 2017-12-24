@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Resume;
 use App\Skill;
 use App\Student_Skill;
+use App\Student_Tag;
 use Illuminate\Http\Request;
 use App\Student;
 use Illuminate\Foundation\Auth\User;
@@ -91,12 +92,15 @@ class StudentController extends Controller {
             $skills[] = Skill::find($skill->skill_id)->name;
         }
 
+        // Get student tags (interests)
+        $interests = $student->interests()->wherePivot('student_id', '=', $student->id)->get();
+
         //Get student resume
         $resume = Resume::where('user_id', '=', $user->id)->first();
 
         // Return student profile home page
         return view('student.show')->with('username', $username)->with('student', $student)
-            ->with('resume', $resume)->with('skills', $skills);
+            ->with('resume', $resume)->with('skills', $skills)->with('interests', $interests);
     }
 
     /**

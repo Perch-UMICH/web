@@ -3,6 +3,7 @@
 use App\Lab_Faculty;
 use App\Lab_Student;
 use App\Lab_Tag;
+use App\Lab_Skill;
 use App\Tag;
 use App\Lab_Position;
 use App\Position;
@@ -21,6 +22,7 @@ class LabConnectionsSeeder extends Seeder
         $this->labStudentSeeder();
         $this->labTagsTableSeeder();
         $this->labPositionsTableSeeder();
+        $this->labSkillsTableSeeder();
     }
 
     /**
@@ -73,11 +75,9 @@ class LabConnectionsSeeder extends Seeder
      */
     public function labTagsTableSeeder() {
         DB::table('lab_tags')->delete();
-        DB::table('tags')->delete();
+        // See TagsTableSeeder for seeded tags
 
-        $tag = new Tag();
-        $tag->tag = "Chemistry";
-        $tag->save();
+        $tag = Tag::where('tag', '=', 'Chemistry')->first();
 
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 1;
@@ -86,9 +86,7 @@ class LabConnectionsSeeder extends Seeder
 
         //
 
-        $tag = new Tag();
-        $tag->tag = "Biophysical Chemistry";
-        $tag->save();
+        $tag = Tag::where('tag', '=', 'Biophysical Chemistry')->first();
 
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 1;
@@ -97,9 +95,7 @@ class LabConnectionsSeeder extends Seeder
 
         //
 
-        $tag = new Tag();
-        $tag->tag = "Organic Chemistry";
-        $tag->save();
+        $tag = Tag::where('tag', '=', 'Organic Chemistry')->first();
 
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 1;
@@ -108,9 +104,7 @@ class LabConnectionsSeeder extends Seeder
 
         //
 
-        $tag = new Tag();
-        $tag->tag = "Physical Chemistry";
-        $tag->save();
+        $tag = Tag::where('tag', '=', 'Physical Chemistry')->first();
 
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 1;
@@ -119,9 +113,7 @@ class LabConnectionsSeeder extends Seeder
 
         //
 
-        $tag = new Tag();
-        $tag->tag = "Biology";
-        $tag->save();
+        $tag = Tag::where('tag', '=', 'Biology')->first();
 
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 2;
@@ -130,9 +122,7 @@ class LabConnectionsSeeder extends Seeder
 
         //
 
-        $tag = new Tag();
-        $tag->tag = "Cell Biology";
-        $tag->save();
+        $tag = Tag::where('tag', '=', 'Cell Biology')->first();
 
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 2;
@@ -141,9 +131,7 @@ class LabConnectionsSeeder extends Seeder
 
         //
 
-        $tag = new Tag();
-        $tag->tag = "Computational Biology";
-        $tag->save();
+        $tag = Tag::where('tag', '=', 'Computational Biology')->first();
 
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 2;
@@ -152,9 +140,7 @@ class LabConnectionsSeeder extends Seeder
 
         //
 
-        $tag = new Tag();
-        $tag->tag = "Biochemistry";
-        $tag->save();
+        $tag = Tag::where('tag', '=', 'Biochemistry')->first();
 
         $lab_tag = new Lab_Tag();
         $lab_tag->lab_id = 2;
@@ -164,8 +150,8 @@ class LabConnectionsSeeder extends Seeder
     }
 
     /**
-     * Seeds lab_positions table
-     */
+ * Seeds lab_positions table
+ */
     public function labPositionsTableSeeder() {
         DB::table('lab_positions')->delete();
 
@@ -184,4 +170,84 @@ class LabConnectionsSeeder extends Seeder
         $lab_position->position_id = $position->id;
         $lab_position->save();
     }
+
+    /**
+     * Seeds lab_skills table
+     */
+    public function labSkillsTableSeeder() {
+        DB::table('lab_skills')->delete();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 1;
+        $lab_skill->skill_id = 1;
+        $lab_skill->required = true;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 1;
+        $lab_skill->skill_id = 19;
+        $lab_skill->required = true;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 1;
+        $lab_skill->skill_id = 21;
+        $lab_skill->required = true;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 1;
+        $lab_skill->skill_id = 17;
+        $lab_skill->required = false;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 1;
+        $lab_skill->skill_id = 18;
+        $lab_skill->required = false;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 2;
+        $lab_skill->skill_id = 1;
+        $lab_skill->required = true;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 2;
+        $lab_skill->skill_id = 3;
+        $lab_skill->required = true;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 2;
+        $lab_skill->skill_id = 5;
+        $lab_skill->required = true;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 2;
+        $lab_skill->skill_id = 6;
+        $lab_skill->required = true;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 2;
+        $lab_skill->skill_id = 9;
+        $lab_skill->required = true;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 2;
+        $lab_skill->skill_id = 17;
+        $lab_skill->required = false;
+        $lab_skill->save();
+
+        $lab_skill = new Lab_Skill();
+        $lab_skill->lab_id = 2;
+        $lab_skill->skill_id = 18;
+        $lab_skill->required = false;
+        $lab_skill->save();
+    }
+
 }

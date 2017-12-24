@@ -130,6 +130,21 @@
                             <p>No skill listed.</p>
                         @endif
                     </div>
+                    <div class="panel-heading">
+                        Research interests
+                        @if($student->user_id == auth()->id())
+                            <a href="{{ url('/studenttags/' . $username . '/edit') }}" type="button" class="btn btn-xs btn-primary pull-right">Update interests</a>
+                        @endif
+                    </div>
+                    <div class="panel-body">
+                        @if (count($interests) != 0)
+                            @foreach ($interests as $interest)
+                                <p><i class="fa fa-chevron-right fa-fw" aria-hidden="true"></i> {{ $interest->tag }}</p>
+                            @endforeach
+                        @else
+                            <p>No research interests listed.</p>
+                        @endif
+                    </div>
                 </div>
             </div>
 
