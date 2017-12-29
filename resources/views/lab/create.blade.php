@@ -13,7 +13,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Lab Creation</div>
                     <div class="panel-body">
-                        <form id="register_form" class="form-horizontal" method="post" action="/lab">
+                        <form id="register_form" class="form-horizontal" method="POST" action="{{ route('lab') }}">
                             {{ csrf_field() }}
 
                             <div id="register_page_0">

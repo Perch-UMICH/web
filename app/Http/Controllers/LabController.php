@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Faculty;
+use App\Lab_Faculty;
 use App\User;
 use Illuminate\Http\Request;
 use App\Lab;
@@ -18,7 +19,7 @@ class LabController extends Controller
     public function __construct() {
         $this->middleware('auth');
         $this->middleware('checkRole:faculty')->only(['edit', 'update', 'create', 'store']);
-        $this->middleware('editLabPermission')->only(['edit','update', 'store']);
+        $this->middleware('editLabPermission')->only(['edit','update']);
     }
 
     /**
@@ -70,8 +71,22 @@ class LabController extends Controller
         $lab->location = $loc;
         $lab->researchAreas = $res_areas;
         $lab->description = $des;
+        $lab->publications = "No publications listed";
+        $lab->url = "No website listed";
+        $lab->gpa = 4.0;
+        $lab->weeklyCommitment = 10;
+
 
         $lab->save();
+
+        // Set creator as PI
+        $faculty = Faculty::where('user_id', '=', auth()->id())->first();
+        $lab_faculty = new Lab_Faculty;
+        $lab_faculty->lab_id = $lab->id;
+        $lab_faculty->faculty_id = $faculty->id;
+        $lab_faculty->PI = true;
+
+        $lab_faculty->save();
 
         // redirect
         return redirect('lab/' . $lab->id);

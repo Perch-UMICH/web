@@ -94,6 +94,9 @@
             {{--POSITIONS--}}
             <hr />
             <h3>Open Positions</h3>
+            @if ($edit)
+                <a href={{ url('/lab/' . $lab->id . '/edit') }} type="button" class="btn btn-sm btn-primary pull-right">Add new position</a>
+            @endif
             @if (count($labPositions) != 0)
                 @foreach ($labPositions as $pos)
                     <h4>{{ $pos->name }}</h4>
