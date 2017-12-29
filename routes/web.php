@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Request;
+use App\Lab;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +28,25 @@ Route::get('team', function () {
 
 Route::get('timeline', function () {
     return view('timeline');
+});
+
+Route::get('search', function () {
+    return view('search');
+});
+
+Route::any('/search_lab', function() {
+//    $labs = Lab::all();
+//    $labs->tags()->wherePivot('tag','LIKE','%'.$q.'%')->get();
+    $q = Request::input('q');
+    $lab_q = Lab::query();
+    $lab_q->whereHas('tags', function($query) use($q) {
+        $query->where('tag','LIKE','%'.$q.'%');
+    });
+
+    $labs = $lab_q->get();
+
+    return view('search_results')->with('lab_results', $labs);
+
 });
 
 Auth::routes();
