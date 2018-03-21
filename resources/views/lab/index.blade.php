@@ -9,12 +9,26 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Lab Dashboard</div>
+                    <!--div class="panel-heading">Lab Dashboard</div-->
 
                     <div class="panel-body">
-                        <h1>All Labs</h1>
+                        <h1>Labs</h1>
+                        <form action="/search_lab" method="POST" role="search">
+                            {{ csrf_field() }}
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="q"
+                                       placeholder="Search by tags"> <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                                </span>
+                            </div>
+                        </form>
                         <hr/>
-
+                        <button type="button" class="btn btn-default btn-sm alert-danger">Filter
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                        <hr/>
                         <div class="row">
                             @if ($labs !== null)
                                 @foreach ($labs as $lab)

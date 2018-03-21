@@ -122,9 +122,10 @@
             <p><i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
             @if ($lab->url)
                 <a href="{{ $lab->url }}" class="btn btn-xs btn-warning"
-                   data-toggle="tooltip" title="{{ $lab->url }}">Lab Page</a>
+                    data-toggle="tooltip" title="{{ $lab->url }}">Lab Page</a>
             @else
-                <button type="button" class="btn btn-xs btn-warning" disabled="disabled">Lab Page</button>
+                <button type="button" class="btn btn-xs btn-warning"
+                    data-toggle="tooltip" title="No website listed">Lab Page</button>
             @endif
             </p>
             <hr/>

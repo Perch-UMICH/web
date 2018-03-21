@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-class StudentSkillController extends Controller
+class StudentTagsController extends Controller
 {
     public function __construct() {
         $this->middleware('auth');

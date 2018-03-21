@@ -49,9 +49,12 @@ class StudentSkillController extends Controller
         foreach ($student_skills as $skill) {
             $skills[] = $skill->skill->name;
         }
+        // Get student tags (interests)
+        $interests = $student->interests()->wherePivot('student_id', '=', $student->id)->get();
+
         //$student = Student::where('user_id', '=', Auth::id())->first();
         return view('student.editSkills')->with('username', $username)->with('student', $student)
-            ->with('skills', $skills);
+            ->with('skills', $skills)->with('interests', $interests);
     }
 
     /**

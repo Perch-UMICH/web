@@ -38,45 +38,6 @@
                     <li><a class="nav-item" href="{{ url('about') }}">ABOUT US</a></li>
                     <li><a class="nav-item" href="{{ url('team') }}">TEAM</a></li>
                     <li><a class="nav-item" href="{{ url('timeline') }}">TIMELINE</a></li>
-                    @if (Auth::guest())
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Get Involved</a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('login') }}">Login</a></li>
-                                <li><a href="{{ route('register') }}">Register</a></li>
-                            </ul>
-                        </li>
-                    @else
-                        <li class="nav-item dropdown" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->username }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href={{ url('/home') }}>Dashboard</a>
-                                </li>
-                                <li>
-                                    @if (Auth::user()->hasRole('student'))
-                                        <a href={{ url('/student') }}>Profile</a>
-                                    @elseif (Auth::user()->hasRole('faculty'))
-                                        <a href={{ url('/faculty') }}>Lab Dashboard</a>
-                                    @endif
-                                </li>
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
 
                     @section('contact')
                     <li><a class="nav-item contact-nav js-trigger" href="/#form">STAY IN TOUCH</a></li>
@@ -101,45 +62,6 @@
                     <li><a class="nav-item" href="{{ url('about') }}">ABOUT US</a></li>
                     <li><a class="nav-item" href="{{ url('team') }}">TEAM</a></li>
                     <li><a class="nav-item" href="{{ url('timeline') }}">TIMELINE</a></li>
-                    @if (Auth::guest())
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Get Involved</a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('login') }}">Login</a></li>
-                                <li><a href="{{ route('register') }}">Register</a></li>
-                            </ul>
-                        </li>
-                    @else
-                        <li class="nav-item dropdown" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->username }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href={{ url('/home') }}>Dashboard</a>
-                                </li>
-                                <li>
-                                    @if (Auth::user()->hasRole('student'))
-                                        <a href={{ url('/student') }}>Profile</a>
-                                    @elseif (Auth::user()->hasRole('faculty'))
-                                        <a href={{ url('/faculty') }}>Lab Dashboard</a>
-                                    @endif
-                                </li>
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
 
                     @section('contact_mobile')
                         <li><a class="nav-item contact-nav js-trigger" href="/#form">STAY IN TOUCH</a></li>

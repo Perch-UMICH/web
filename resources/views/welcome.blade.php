@@ -195,4 +195,17 @@
     </div>
 </div>
 <!-- END FORM -->
+@if($interested == 1)
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"></script>
+    @if ($new == 1)
+        <script>
+            toastr['success']("Success! Your email has been added to the mailing list. We'll keep you updated!")
+        </script>
+    @else
+        <script>
+            toastr['success']("Success! Your information has been updated. We'll keep you updated!")
+        </script>
+    @endif
+@endif
 @endsection

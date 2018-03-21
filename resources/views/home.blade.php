@@ -15,6 +15,8 @@
                     </p><p>
                         You're a student!
                         Check out your <a href={{ url('/student') }}>Profile</a>
+                    </p><p>
+                        View all <a href="{{ url('/lab') }}">Labs</a>
                     </p>
                     @elseif (Auth::user()->hasRole('faculty'))
                         {{ Auth::user()->faculty->first_name }}.

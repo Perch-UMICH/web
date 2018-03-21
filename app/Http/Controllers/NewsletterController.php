@@ -42,8 +42,15 @@ class NewsletterController extends Controller
             'email' => 'required|email',
             'user_type' => 'required'
         ]);
-        // add to db
-        $row = new Newsletter_User();
+
+        $new = false;
+        $row = Newsletter_User::where('email', '=', $request->email)->first();
+        if (!$row) {
+            // new user
+            $row = new Newsletter_User();
+            $new = true;
+        }
+        // update info
         $row->first_name = $request->first_name;
         $row->last_name = $request->last_name;
         $row->email = $request->email;
@@ -56,9 +63,9 @@ class NewsletterController extends Controller
         try {
             $row->save();
         } catch (QueryException $e) {
-            // email already exist
+            // db exception
         }
         // redirect
-        return redirect('/');
+        return redirect()->action('IndexController@index',array('interested' => true, 'new' => $new));
     }
 }

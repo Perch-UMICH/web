@@ -130,6 +130,8 @@
                             <p>No skill listed.</p>
                         @endif
                     </div>
+                </div>
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         Research interests
                         @if($student->user_id == auth()->id())

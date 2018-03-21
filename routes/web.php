@@ -14,9 +14,7 @@ use App\Lab;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', 'IndexController', ['only' => ['index']]);
 
 Route::get('about', function () {
     return view('about');

@@ -13,8 +13,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Lab Creation</div>
                     <div class="panel-body">
-                        <form id="register_form" class="form-horizontal" method="POST" action="/lab">
+                        <form id="register_form" class="form-horizontal" method="POST" action="{{ route('lab') }}">
                             {{ csrf_field() }}
+
                             <div id="register_page_0">
                                 {{--lab name--}}
                                 <div class="form-group{{ $errors->has('lab_name') ? ' has-error' : '' }}">
@@ -67,21 +68,21 @@
 
                             <div id="register_page_1">
                                 {{--<div class="form-group">--}}
-                                {{--<label for="skills" class="col-md-4 control-label">Selected Skills</label>--}}
-                                {{--<input id="skills" name="skills" type="hidden" class="form-control" value="[]">--}}
-                                {{--<div class="col-md-6">--}}
-                                {{--<ul class="well" id="selectedList"></ul>--}}
-                                {{--</div>--}}
+                                    {{--<label for="skills" class="col-md-4 control-label">Selected Skills</label>--}}
+                                    {{--<input id="skills" name="skills" type="hidden" class="form-control" value="[]">--}}
+                                    {{--<div class="col-md-6">--}}
+                                        {{--<ul class="well" id="selectedList"></ul>--}}
+                                    {{--</div>--}}
                                 {{--</div>--}}
                                 {{--<hr>--}}
                                 {{--<div class="form-group">--}}
-                                {{--<div class="col-md-8 col-md-offset-2">--}}
-                                {{--<input id="searchBox" type="search" class="form-control"--}}
-                                {{--autocomplete="off" placeholder="Search for research areas">--}}
-                                {{--<p></p>--}}
-                                {{--<ul id="resultsList">--}}
-                                {{--</ul>--}}
-                                {{--</div>--}}
+                                    {{--<div class="col-md-8 col-md-offset-2">--}}
+                                        {{--<input id="searchBox" type="search" class="form-control"--}}
+                                               {{--autocomplete="off" placeholder="Search for research areas">--}}
+                                        {{--<p></p>--}}
+                                        {{--<ul id="resultsList">--}}
+                                        {{--</ul>--}}
+                                    {{--</div>--}}
                                 {{--</div>--}}
                                 <h4 id="question">What field of research is most associated with you lab?</h4>
                                 <div class="form-group{{ $errors->has('research_areas') ? ' has-error' : '' }}">

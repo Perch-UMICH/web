@@ -30,6 +30,7 @@ class LabController extends Controller
     public function index()
     {
         $labs = Lab::all();
+        //return json_encode($labs);
         return view('lab.index')->with('labs', $labs);
     }
 
@@ -59,6 +60,7 @@ class LabController extends Controller
             'research_areas' => 'required',
         ]);
 
+
         $name = $request['lab_name'];
         $department = $request['department_name'];
         $loc = $request['location'];
@@ -72,10 +74,8 @@ class LabController extends Controller
         $lab->researchAreas = $res_areas;
         $lab->description = $des;
         $lab->publications = "No publications listed";
-        $lab->url = "No website listed";
         $lab->gpa = 4.0;
         $lab->weeklyCommitment = 10;
-
 
         $lab->save();
 
@@ -90,6 +90,7 @@ class LabController extends Controller
 
         // redirect
         return redirect('lab/' . $lab->id);
+
     }
 
     /**

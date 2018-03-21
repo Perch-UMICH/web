@@ -122,6 +122,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Research interests
+                    </div>
+                    <div class="panel-body">
+                        @if (count($interests) != 0)
+                            @foreach ($interests as $interest)
+                                <p><i class="fa fa-chevron-right fa-fw" aria-hidden="true"></i> {{ $interest->tag }}</p>
+                            @endforeach
+                        @else
+                            <p>No research interests listed.</p>
+                        @endif
+                    </div>
+                </div>
             </div>
             <div class="text-right btn-toolbar">
                 <input type="submit" class="btn btn-primary pull-right" value="Save Skills">
